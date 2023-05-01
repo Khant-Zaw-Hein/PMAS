@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMAS_Backend_WebModelStoreContainer" CdmEntityContainer="PMAS_Backend_WebEntities">
+    <EntitySetMapping Name="tbl_CryptoKey">
+      <EntityTypeMapping TypeName="PMAS_Backend_WebModel.tbl_CryptoKey">
+        <MappingFragment StoreEntitySet="tbl_CryptoKey">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="KeyValue" ColumnName="KeyValue" />
+          <ScalarProperty Name="Standard" ColumnName="Standard" />
+          <ScalarProperty Name="Algorithm" ColumnName="Algorithm" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Passphrase" ColumnName="Passphrase" />
+          <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_WebAPIKey">
+      <EntityTypeMapping TypeName="PMAS_Backend_WebModel.tbl_WebAPIKey">
+        <MappingFragment StoreEntitySet="tbl_WebAPIKey">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="HashKey" ColumnName="HashKey" />
+          <ScalarProperty Name="HandshakeKey" ColumnName="HandshakeKey" />
+          <ScalarProperty Name="RequestSource" ColumnName="RequestSource" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

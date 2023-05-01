@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMAS_Backend_KeyServerModelStoreContainer" CdmEntityContainer="PMAS_Backend_KeyServerEntities">
+    <EntitySetMapping Name="tbl_CryptoSecret">
+      <EntityTypeMapping TypeName="PMAS_Backend_KeyServerModel.tbl_CryptoSecret">
+        <MappingFragment StoreEntitySet="tbl_CryptoSecret">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CertificateName" ColumnName="CertificateName" />
+          <ScalarProperty Name="KeyPassphrase" ColumnName="KeyPassphrase" />
+          <ScalarProperty Name="Standard" ColumnName="Standard" />
+          <ScalarProperty Name="Algorithm" ColumnName="Algorithm" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

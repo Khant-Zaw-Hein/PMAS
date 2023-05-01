@@ -1,0 +1,2030 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PMASModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_Appraisal">
+          <Key>
+            <PropertyRef Name="Appraisal_Id" />
+          </Key>
+          <Property Name="Appraisal_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SortOrder" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="campaign_id" Type="uniqueidentifier" />
+          <Property Name="assessment_startdate" Type="date" />
+          <Property Name="assessment_enddate" Type="date" />
+          <Property Name="AppraisalType_Id" Type="uniqueidentifier" />
+          <Property Name="AppraisalPurpose_Id" Type="uniqueidentifier" />
+          <Property Name="AppraisalForm_Id" Type="uniqueidentifier" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="visible" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'PMAS.dbo.tbl_AppraisalForm' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tbl_AppraisalForm">
+          <Property Name="AppraisalForm_Id" Type="uniqueidentifier" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>-->
+        <EntityType Name="tbl_AppraisalPurpose">
+          <Key>
+            <PropertyRef Name="AppraisalPurpose_Id" />
+          </Key>
+          <Property Name="AppraisalPurpose_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SortIndex" Type="int" />
+          <Property Name="appraisal_purpose" Type="varchar" MaxLength="100" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalStaff">
+          <Key>
+            <PropertyRef Name="AppraisalStaff_Id" />
+          </Key>
+          <Property Name="AppraisalStaff_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Appraisal_Id" Type="int" />
+          <Property Name="Employee_Id" Type="int" />
+          <Property Name="AppraisalStatus_Id" Type="int" />
+          <Property Name="Form_Id" Type="int" />
+          <Property Name="Sec1_total_points_score" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="Sec1_overall_percent" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="Sec2_total_points_score" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="Sec2_overall_percent" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="PerformanceRating_Id" Type="int" />
+          <Property Name="PO_1" Type="nvarchar(max)" />
+          <Property Name="PO_2" Type="nvarchar(max)" />
+          <Property Name="PO_3" Type="nvarchar(max)" />
+          <Property Name="PO_4" Type="nvarchar(max)" />
+          <Property Name="PO_5" Type="nvarchar(max)" />
+          <Property Name="PO_6" Type="nvarchar(max)" />
+          <Property Name="PO_7" Type="nvarchar(max)" />
+          <Property Name="PO_8" Type="nvarchar(max)" />
+          <Property Name="PO_9" Type="nvarchar(max)" />
+          <Property Name="PO_10" Type="nvarchar(max)" />
+          <Property Name="kpi_1" Type="nvarchar(max)" />
+          <Property Name="kpi_2" Type="nvarchar(max)" />
+          <Property Name="kpi_3" Type="nvarchar(max)" />
+          <Property Name="kpi_4" Type="nvarchar(max)" />
+          <Property Name="kpi_5" Type="nvarchar(max)" />
+          <Property Name="kpi_6" Type="nvarchar(max)" />
+          <Property Name="kpi_7" Type="nvarchar(max)" />
+          <Property Name="kpi_8" Type="nvarchar(max)" />
+          <Property Name="kpi_9" Type="nvarchar(max)" />
+          <Property Name="kpi_10" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_1" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_2" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_3" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_4" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_5" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_6" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_7" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_8" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_9" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_PO_10" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_1" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_2" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_3" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_4" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_5" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_6" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_7" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_8" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_9" Type="nvarchar(max)" />
+          <Property Name="PO_Rating_10" Type="nvarchar(max)" />
+          <Property Name="ro_other_projects" Type="nvarchar(max)" />
+          <Property Name="ro_strengths" Type="nvarchar(max)" />
+          <Property Name="ro_improvements_followup" Type="nvarchar(max)" />
+          <Property Name="ro_achievements" Type="nvarchar(max)" />
+          <Property Name="DO_1" Type="nvarchar(max)" />
+          <Property Name="DO_2" Type="nvarchar(max)" />
+          <Property Name="DO_3" Type="nvarchar(max)" />
+          <Property Name="DO_4" Type="nvarchar(max)" />
+          <Property Name="DO_5" Type="nvarchar(max)" />
+          <Property Name="DO_6" Type="nvarchar(max)" />
+          <Property Name="DO_7" Type="nvarchar(max)" />
+          <Property Name="DO_8" Type="nvarchar(max)" />
+          <Property Name="DO_9" Type="nvarchar(max)" />
+          <Property Name="DO_10" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_1" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_2" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_3" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_4" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_5" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_6" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_7" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_8" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_9" Type="nvarchar(max)" />
+          <Property Name="actions_to_achieve_DO_10" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_1" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_2" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_3" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_4" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_5" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_6" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_7" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_8" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_9" Type="nvarchar(max)" />
+          <Property Name="current_or_future_role_10" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_1" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_2" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_3" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_4" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_5" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_6" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_7" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_8" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_9" Type="nvarchar(max)" />
+          <Property Name="date_to_complete_DO_10" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_1" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_2" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_3" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_4" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_5" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_6" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_7" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_8" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_9" Type="nvarchar(max)" />
+          <Property Name="outcomes_achieved_10" Type="nvarchar(max)" />
+          <Property Name="staff_comments" Type="nvarchar(max)" />
+          <Property Name="ready_for_promotion" Type="bit" />
+          <Property Name="to_promote_to" Type="nvarchar" MaxLength="100" />
+          <Property Name="has_potential_for_promotion" Type="bit" />
+          <Property Name="to_consider_on" Type="nvarchar" MaxLength="50" />
+          <Property Name="needs_improvement" Type="bit" />
+          <Property Name="recommend_discipinary_action" Type="bit" />
+          <Property Name="salary_increment" Type="bit" />
+          <Property Name="StatsCode_Id_salary_increment" Type="int" />
+          <Property Name="performance_bonus" Type="bit" />
+          <Property Name="StatsCode_Id_perf_bonus" Type="int" />
+          <Property Name="to_confirm_as" Type="nvarchar" MaxLength="100" />
+          <Property Name="ext_probation_months" Type="nvarchar" MaxLength="20" />
+          <Property Name="termination_last_day_of_service" Type="nvarchar" MaxLength="20" />
+          <Property Name="current_salary_fixed" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="current_salary_vc" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="salary_adj_fixed" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="salary_adj_vc" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="salary_adj_eff_date" Type="date" />
+          <Property Name="month_of_next_annual_incr" Type="varchar" MaxLength="20" />
+          <Property Name="ass_panel_approval" Type="bit" />
+          <Property Name="ass_panel_comments" Type="nvarchar(max)" />
+          <Property Name="mgt_concurred_with_assessment" Type="bit" />
+          <Property Name="mgt_partially_concurred_with_assessment" Type="bit" />
+          <Property Name="mgt_donot_concur_with_assessment" Type="bit" />
+          <Property Name="mgt_comments" Type="nvarchar(max)" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="appraisal_complete_date" Type="datetime" />
+          <Property Name="appraisal_update_count_after_completion" Type="int" />
+          <Property Name="recommendation_others" Type="bit" />
+          <Property Name="recommendation_others_specify" Type="nvarchar(max)" />
+          <Property Name="job_scope_probationary_period" Type="nvarchar(max)" />
+          <Property Name="confirmation" Type="bit" />
+          <Property Name="extension" Type="bit" />
+          <Property Name="termination" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalStaffDetails">
+          <Key>
+            <PropertyRef Name="AppraisalStaffDetails_Id" />
+          </Key>
+          <Property Name="AppraisalStaffDetails_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AppraisalStaff_Id" Type="int" />
+          <Property Name="PerformanceCriterion_Id" Type="int" />
+          <Property Name="ro_perf_rating_yearMid" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="ro_perf_rating_yearEnd" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="staff_comments" Type="nvarchar(max)" />
+          <Property Name="ro_comments" Type="nvarchar(max)" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalStatus">
+          <Key>
+            <PropertyRef Name="AppraisalStatus_Id" />
+          </Key>
+          <Property Name="AppraisalStatus_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="appraisal_status" Type="varchar" MaxLength="50" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PMAS.dbo.tbl_AppraisalType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_AppraisalType">
+          <Key>
+            <PropertyRef Name="AppraisalType_Id" />
+          </Key>
+          <Property Name="AppraisalType_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="appraisal_type" Type="varchar" MaxLength="50" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="SortIndex" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PMAS.dbo.tbl_Campaign' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_Campaign">
+          <Key>
+            <PropertyRef Name="Campaign_Id" />
+          </Key>
+          <Property Name="Campaign_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="createdby" Type="datetime" />
+          <Property Name="createddate" Type="datetime" />
+          <Property Name="modifiedby" Type="datetime" />
+          <Property Name="modifieddate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_CodeTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Value" Type="int" />
+          <Property Name="SortIndex" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Company">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Name="Company_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="100" />
+          <Property Name="address" Type="varchar" MaxLength="100" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_CryptoKey">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="KeyName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Passphrase" Type="varchar" MaxLength="16" />
+          <Property Name="Type" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Algorithm" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Standard" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="KeyValue" Type="varchar(max)" Nullable="false" />
+          <Property Name="VectorKey" Type="varchar(max)" />
+          <Property Name="ValidFrom" Type="datetime" Nullable="false" />
+          <Property Name="ValidTo" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="tbl_Department">
+          <Key>
+            <PropertyRef Name="Department_Id" />
+          </Key>
+          <Property Name="Department_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department" Type="varchar" MaxLength="100" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Designation">
+          <Key>
+            <PropertyRef Name="Designation_Id" />
+          </Key>
+          <Property Name="Designation_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="designation" Type="varchar" MaxLength="100" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="sort_order" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_EmailNotification">
+          <Key>
+            <PropertyRef Name="EmailNotification_Id" />
+          </Key>
+          <Property Name="EmailNotification_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="from" Type="nvarchar" MaxLength="50" />
+          <Property Name="to" Type="nvarchar" MaxLength="50" />
+          <Property Name="subject" Type="nvarchar" MaxLength="200" />
+          <Property Name="body" Type="nvarchar(max)" />
+          <Property Name="timesent" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="sendstatus" Type="bit" />
+          <Property Name="number_of_attempts" Type="smallint" />
+          <Property Name="errors" Type="nvarchar(max)" />
+          <Property Name="notification_type_id" Type="int" />
+          <Property Name="AppraisalStaff_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MenuName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProgramID" Type="uniqueidentifier" />
+          <Property Name="MenuLevel" Type="int" Nullable="false" />
+          <Property Name="ParentMenuID" Type="uniqueidentifier" />
+          <Property Name="SortIndexSerialNo" Type="int" />
+          <Property Name="MenuCategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsShow" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="uniqueidentifier" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Module">
+          <Key>
+            <PropertyRef Name="Module_Id" />
+          </Key>
+          <Property Name="Module_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="module_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="module_desc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModuleGroup_Id" Type="int" />
+          <Property Name="source" Type="nvarchar" MaxLength="100" />
+          <Property Name="icon_name" Type="varchar" MaxLength="50" />
+          <Property Name="sortkey" Type="int" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_ModuleGroup">
+          <Key>
+            <PropertyRef Name="ModuleGroup_Id" />
+          </Key>
+          <Property Name="ModuleGroup_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="module_group" Type="nvarchar" MaxLength="50" />
+          <Property Name="sortkey" Type="int" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+          <Property Name="disabled" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_PasswordHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserAccountID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OldPassword" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="Saltkey" Type="varbinary" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="tbl_PerformanceCriterion">
+          <Key>
+            <PropertyRef Name="PerformanceCriterion_Id" />
+          </Key>
+          <Property Name="PerformanceCriterion_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Form_Id" Type="int" />
+          <Property Name="Section_Id" Type="int" />
+          <Property Name="SubSection_Id" Type="int" />
+          <Property Name="qn_title" Type="nvarchar(max)" />
+          <Property Name="performance_criterion" Type="nvarchar(max)" />
+          <Property Name="qno" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_PerformanceRating">
+          <Key>
+            <PropertyRef Name="PerformanceRating_Id" />
+          </Key>
+          <Property Name="PerformanceRating_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="performance_rating" Type="varchar" MaxLength="50" />
+          <Property Name="perf_cat" Type="varchar" MaxLength="50" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Program">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="ProgramURL" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsParentProgram" Type="bit" Nullable="false" />
+          <Property Name="ParentProgramID" Type="uniqueidentifier" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="uniqueidentifier" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Rank">
+          <Key>
+            <PropertyRef Name="Rank_Id" />
+          </Key>
+          <Property Name="Rank_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rank" Type="varchar" MaxLength="100" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="SortIndex" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="uniqueidentifier" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RoleMenuPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MenuID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedUserID" Type="uniqueidentifier" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedUserID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="tbl_StatsCode">
+          <Key>
+            <PropertyRef Name="StatsCode_Id" />
+          </Key>
+          <Property Name="StatsCode_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stats_code" Type="varchar" MaxLength="50" />
+          <Property Name="disabled" Type="bit" />
+          <Property Name="created_date" Type="datetime" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="modified_by" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_UserAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LoginID" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+          <Property Name="IsEnable" Type="bit" Nullable="false" />
+          <Property Name="IsFirstTimeLogin" Type="bit" Nullable="false" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="LastPasswordChangeDate" Type="datetime" />
+          <Property Name="LoginFailedAttempt" Type="int" Nullable="false" />
+          <Property Name="Saltkey" Type="varbinary" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeletedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="tbl_UserProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserAccountID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+          <Property Name="email" Type="nvarchar" MaxLength="300" />
+          <Property Name="Department_Id" Type="int" />
+          <Property Name="Designation_Id" Type="int" />
+          <Property Name="Rank_Id" Type="int" />
+          <Property Name="ReportingOfficer" Type="uniqueidentifier" />
+          <Property Name="JoinDate" Type="date" />
+          <Property Name="ConfirmDate" Type="date" />
+          <Property Name="LastDayDate" Type="date" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+          <Property Name="Deleted" Type="datetime" />
+          <Property Name="DeletedBy" Type="uniqueidentifier" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="JobDescriptionForm" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tbl_UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserAccountId" Type="uniqueidentifier" />
+          <Property Name="RoleId" Type="uniqueidentifier" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="tbl_WebAPI_RequestLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RequestedSouceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RequestedPublicKey" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="GeneratedKeyword" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="EncryptedString" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_WebAPISetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RequestSource" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PublicKey" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PrivateKey" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="PMASModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Appraisal" EntityType="Self.tbl_Appraisal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AppraisalPurpose" EntityType="Self.tbl_AppraisalPurpose" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AppraisalStaff" EntityType="Self.tbl_AppraisalStaff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AppraisalStaffDetails" EntityType="Self.tbl_AppraisalStaffDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AppraisalStatus" EntityType="Self.tbl_AppraisalStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CodeTable" EntityType="Self.tbl_CodeTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Company" EntityType="Self.tbl_Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CryptoKey" EntityType="Self.tbl_CryptoKey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Designation" EntityType="Self.tbl_Designation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_EmailNotification" EntityType="Self.tbl_EmailNotification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Menu" EntityType="Self.tbl_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Module" EntityType="Self.tbl_Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ModuleGroup" EntityType="Self.tbl_ModuleGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PasswordHistory" EntityType="Self.tbl_PasswordHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PerformanceCriterion" EntityType="Self.tbl_PerformanceCriterion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PerformanceRating" EntityType="Self.tbl_PerformanceRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Program" EntityType="Self.tbl_Program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Rank" EntityType="Self.tbl_Rank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Role" EntityType="Self.tbl_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RoleMenuPermission" EntityType="Self.tbl_RoleMenuPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_StatsCode" EntityType="Self.tbl_StatsCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserAccount" EntityType="Self.tbl_UserAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserProfile" EntityType="Self.tbl_UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserRole" EntityType="Self.tbl_UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_WebAPI_RequestLog" EntityType="Self.tbl_WebAPI_RequestLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_WebAPISetting" EntityType="Self.tbl_WebAPISetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_AppraisalType" EntityType="Self.tbl_AppraisalType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_AppraisalType].[AppraisalType_Id] AS [AppraisalType_Id], 
+    [tbl_AppraisalType].[appraisal_type] AS [appraisal_type], 
+    [tbl_AppraisalType].[disabled] AS [disabled], 
+    [tbl_AppraisalType].[created_date] AS [created_date], 
+    [tbl_AppraisalType].[created_by] AS [created_by], 
+    [tbl_AppraisalType].[modified_date] AS [modified_date], 
+    [tbl_AppraisalType].[modified_by] AS [modified_by], 
+    [tbl_AppraisalType].[SortIndex] AS [SortIndex]
+    FROM [dbo].[tbl_AppraisalType] AS [tbl_AppraisalType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tbl_Campaign" EntityType="Self.tbl_Campaign" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_Campaign].[Campaign_Id] AS [Campaign_Id], 
+    [tbl_Campaign].[startdate] AS [startdate], 
+    [tbl_Campaign].[enddate] AS [enddate], 
+    [tbl_Campaign].[createdby] AS [createdby], 
+    [tbl_Campaign].[createddate] AS [createddate], 
+    [tbl_Campaign].[modifiedby] AS [modifiedby], 
+    [tbl_Campaign].[modifieddate] AS [modifieddate]
+    FROM [dbo].[tbl_Campaign] AS [tbl_Campaign]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PMASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Appraisal">
+          <Key>
+            <PropertyRef Name="Appraisal_Id" />
+          </Key>
+          <Property Name="Appraisal_Id" Type="Guid" Nullable="false" />
+          <Property Name="SortOrder" Type="Guid" Nullable="false" />
+          <Property Name="campaign_id" Type="Guid" />
+          <Property Name="assessment_startdate" Type="DateTime" Precision="0" />
+          <Property Name="assessment_enddate" Type="DateTime" Precision="0" />
+          <Property Name="AppraisalType_Id" Type="Guid" />
+          <Property Name="AppraisalPurpose_Id" Type="Guid" />
+          <Property Name="AppraisalForm_Id" Type="Guid" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="visible" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalPurpose">
+          <Key>
+            <PropertyRef Name="AppraisalPurpose_Id" />
+          </Key>
+          <Property Name="AppraisalPurpose_Id" Type="Guid" Nullable="false" />
+          <Property Name="SortIndex" Type="Int32" />
+          <Property Name="appraisal_purpose" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalStaff">
+          <Key>
+            <PropertyRef Name="AppraisalStaff_Id" />
+          </Key>
+          <Property Name="AppraisalStaff_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Appraisal_Id" Type="Int32" />
+          <Property Name="Employee_Id" Type="Int32" />
+          <Property Name="AppraisalStatus_Id" Type="Int32" />
+          <Property Name="Form_Id" Type="Int32" />
+          <Property Name="Sec1_total_points_score" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="Sec1_overall_percent" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="Sec2_total_points_score" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="Sec2_overall_percent" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="PerformanceRating_Id" Type="Int32" />
+          <Property Name="PO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="kpi_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_PO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PO_Rating_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ro_other_projects" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ro_strengths" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ro_improvements_followup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ro_achievements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="actions_to_achieve_DO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="current_or_future_role_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_to_complete_DO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="outcomes_achieved_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="staff_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ready_for_promotion" Type="Boolean" />
+          <Property Name="to_promote_to" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="has_potential_for_promotion" Type="Boolean" />
+          <Property Name="to_consider_on" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="needs_improvement" Type="Boolean" />
+          <Property Name="recommend_discipinary_action" Type="Boolean" />
+          <Property Name="salary_increment" Type="Boolean" />
+          <Property Name="StatsCode_Id_salary_increment" Type="Int32" />
+          <Property Name="performance_bonus" Type="Boolean" />
+          <Property Name="StatsCode_Id_perf_bonus" Type="Int32" />
+          <Property Name="to_confirm_as" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ext_probation_months" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="termination_last_day_of_service" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="current_salary_fixed" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="current_salary_vc" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="salary_adj_fixed" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="salary_adj_vc" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="salary_adj_eff_date" Type="DateTime" Precision="0" />
+          <Property Name="month_of_next_annual_incr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ass_panel_approval" Type="Boolean" />
+          <Property Name="ass_panel_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mgt_concurred_with_assessment" Type="Boolean" />
+          <Property Name="mgt_partially_concurred_with_assessment" Type="Boolean" />
+          <Property Name="mgt_donot_concur_with_assessment" Type="Boolean" />
+          <Property Name="mgt_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="appraisal_complete_date" Type="DateTime" Precision="3" />
+          <Property Name="appraisal_update_count_after_completion" Type="Int32" />
+          <Property Name="recommendation_others" Type="Boolean" />
+          <Property Name="recommendation_others_specify" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="job_scope_probationary_period" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="confirmation" Type="Boolean" />
+          <Property Name="extension" Type="Boolean" />
+          <Property Name="termination" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalStaffDetails">
+          <Key>
+            <PropertyRef Name="AppraisalStaffDetails_Id" />
+          </Key>
+          <Property Name="AppraisalStaffDetails_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AppraisalStaff_Id" Type="Int32" />
+          <Property Name="PerformanceCriterion_Id" Type="Int32" />
+          <Property Name="ro_perf_rating_yearMid" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="ro_perf_rating_yearEnd" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="staff_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ro_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalStatus">
+          <Key>
+            <PropertyRef Name="AppraisalStatus_Id" />
+          </Key>
+          <Property Name="AppraisalStatus_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="appraisal_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_CodeTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="Int32" />
+          <Property Name="SortIndex" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Company">
+          <Key>
+            <PropertyRef Name="Company_Id" />
+          </Key>
+          <Property Name="Company_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_CryptoKey">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="KeyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Passphrase" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Algorithm" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Standard" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KeyValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VectorKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedUserID" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+        </EntityType>
+        <EntityType Name="tbl_Department">
+          <Key>
+            <PropertyRef Name="Department_Id" />
+          </Key>
+          <Property Name="Department_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Designation">
+          <Key>
+            <PropertyRef Name="Designation_Id" />
+          </Key>
+          <Property Name="Designation_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="sort_order" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_EmailNotification">
+          <Key>
+            <PropertyRef Name="EmailNotification_Id" />
+          </Key>
+          <Property Name="EmailNotification_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="from" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="to" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="timesent" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="sendstatus" Type="Boolean" />
+          <Property Name="number_of_attempts" Type="Int16" />
+          <Property Name="errors" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="notification_type_id" Type="Int32" />
+          <Property Name="AppraisalStaff_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProgramID" Type="Guid" />
+          <Property Name="MenuLevel" Type="Int32" Nullable="false" />
+          <Property Name="ParentMenuID" Type="Guid" />
+          <Property Name="SortIndexSerialNo" Type="Int32" />
+          <Property Name="MenuCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsShow" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="Guid" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Module">
+          <Key>
+            <PropertyRef Name="Module_Id" />
+          </Key>
+          <Property Name="Module_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="module_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="module_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModuleGroup_Id" Type="Int32" />
+          <Property Name="source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="icon_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sortkey" Type="Int32" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_ModuleGroup">
+          <Key>
+            <PropertyRef Name="ModuleGroup_Id" />
+          </Key>
+          <Property Name="ModuleGroup_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="module_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sortkey" Type="Int32" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="disabled" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_PasswordHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="UserAccountID" Type="Guid" Nullable="false" />
+          <Property Name="OldPassword" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Saltkey" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+        </EntityType>
+        <EntityType Name="tbl_PerformanceCriterion">
+          <Key>
+            <PropertyRef Name="PerformanceCriterion_Id" />
+          </Key>
+          <Property Name="PerformanceCriterion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Form_Id" Type="Int32" />
+          <Property Name="Section_Id" Type="Int32" />
+          <Property Name="SubSection_Id" Type="Int32" />
+          <Property Name="qn_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="performance_criterion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="qno" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_PerformanceRating">
+          <Key>
+            <PropertyRef Name="PerformanceRating_Id" />
+          </Key>
+          <Property Name="PerformanceRating_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="performance_rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="perf_cat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Program">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsParentProgram" Type="Boolean" Nullable="false" />
+          <Property Name="ParentProgramID" Type="Guid" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="Guid" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Rank">
+          <Key>
+            <PropertyRef Name="Rank_Id" />
+          </Key>
+          <Property Name="Rank_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SortIndex" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="Guid" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_RoleMenuPermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="RoleID" Type="Guid" Nullable="false" />
+          <Property Name="MenuID" Type="Guid" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedUserID" Type="Guid" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedUserID" Type="Guid" />
+        </EntityType>
+        <EntityType Name="tbl_StatsCode">
+          <Key>
+            <PropertyRef Name="StatsCode_Id" />
+          </Key>
+          <Property Name="StatsCode_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stats_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_UserAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="LoginID" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+          <Property Name="IsFirstTimeLogin" Type="Boolean" Nullable="false" />
+          <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+          <Property Name="LastPasswordChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="LoginFailedAttempt" Type="Int32" Nullable="false" />
+          <Property Name="Saltkey" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="Guid" />
+        </EntityType>
+        <EntityType Name="tbl_UserProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="UserAccountID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Department_Id" Type="Int32" />
+          <Property Name="Designation_Id" Type="Int32" />
+          <Property Name="Rank_Id" Type="Int32" />
+          <Property Name="JoinDate" Type="DateTime" Precision="0" />
+          <Property Name="ConfirmDate" Type="DateTime" Precision="0" />
+          <Property Name="LastDayDate" Type="DateTime" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+          <Property Name="Deleted" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="Guid" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="JobDescriptionForm" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ReportingOfficer" Type="Guid" />
+        </EntityType>
+        <EntityType Name="tbl_UserRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserAccountId" Type="Guid" />
+          <Property Name="RoleId" Type="Guid" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Guid" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Guid" />
+        </EntityType>
+        <EntityType Name="tbl_WebAPI_RequestLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="RequestedSouceID" Type="Guid" Nullable="false" />
+          <Property Name="RequestedPublicKey" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GeneratedKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EncryptedString" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_WebAPISetting">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="RequestSource" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PublicKey" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrivateKey" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_AppraisalType">
+          <Key>
+            <PropertyRef Name="AppraisalType_Id" />
+          </Key>
+          <Property Name="AppraisalType_Id" Type="Guid" Nullable="false" />
+          <Property Name="appraisal_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="disabled" Type="Boolean" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="Int32" />
+          <Property Name="SortIndex" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Campaign">
+          <Key>
+            <PropertyRef Name="Campaign_Id" />
+          </Key>
+          <Property Name="Campaign_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="startdate" Type="DateTime" Precision="0" />
+          <Property Name="enddate" Type="DateTime" Precision="0" />
+          <Property Name="createdby" Type="DateTime" Precision="3" />
+          <Property Name="createddate" Type="DateTime" Precision="3" />
+          <Property Name="modifiedby" Type="DateTime" Precision="3" />
+          <Property Name="modifieddate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="PMASEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_Appraisal" EntityType="Self.tbl_Appraisal" />
+          <EntitySet Name="tbl_AppraisalPurpose" EntityType="Self.tbl_AppraisalPurpose" />
+          <EntitySet Name="tbl_AppraisalStaff" EntityType="Self.tbl_AppraisalStaff" />
+          <EntitySet Name="tbl_AppraisalStaffDetails" EntityType="Self.tbl_AppraisalStaffDetails" />
+          <EntitySet Name="tbl_AppraisalStatus" EntityType="Self.tbl_AppraisalStatus" />
+          <EntitySet Name="tbl_CodeTable" EntityType="Self.tbl_CodeTable" />
+          <EntitySet Name="tbl_Company" EntityType="Self.tbl_Company" />
+          <EntitySet Name="tbl_CryptoKey" EntityType="Self.tbl_CryptoKey" />
+          <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" />
+          <EntitySet Name="tbl_Designation" EntityType="Self.tbl_Designation" />
+          <EntitySet Name="tbl_EmailNotification" EntityType="Self.tbl_EmailNotification" />
+          <EntitySet Name="tbl_Menu" EntityType="Self.tbl_Menu" />
+          <EntitySet Name="tbl_Module" EntityType="Self.tbl_Module" />
+          <EntitySet Name="tbl_ModuleGroup" EntityType="Self.tbl_ModuleGroup" />
+          <EntitySet Name="tbl_PasswordHistory" EntityType="Self.tbl_PasswordHistory" />
+          <EntitySet Name="tbl_PerformanceCriterion" EntityType="Self.tbl_PerformanceCriterion" />
+          <EntitySet Name="tbl_PerformanceRating" EntityType="Self.tbl_PerformanceRating" />
+          <EntitySet Name="tbl_Program" EntityType="Self.tbl_Program" />
+          <EntitySet Name="tbl_Rank" EntityType="Self.tbl_Rank" />
+          <EntitySet Name="tbl_Role" EntityType="Self.tbl_Role" />
+          <EntitySet Name="tbl_RoleMenuPermission" EntityType="Self.tbl_RoleMenuPermission" />
+          <EntitySet Name="tbl_StatsCode" EntityType="Self.tbl_StatsCode" />
+          <EntitySet Name="tbl_UserAccount" EntityType="Self.tbl_UserAccount" />
+          <EntitySet Name="tbl_UserProfile" EntityType="Self.tbl_UserProfile" />
+          <EntitySet Name="tbl_UserRole" EntityType="Self.tbl_UserRole" />
+          <EntitySet Name="tbl_WebAPI_RequestLog" EntityType="Self.tbl_WebAPI_RequestLog" />
+          <EntitySet Name="tbl_WebAPISetting" EntityType="Self.tbl_WebAPISetting" />
+          <EntitySet Name="tbl_AppraisalType" EntityType="Self.tbl_AppraisalType" />
+          <EntitySet Name="tbl_Campaign" EntityType="Self.tbl_Campaign" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PMASModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PMASModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PMASModelStoreContainer" CdmEntityContainer="PMASEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PMASModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Appraisal">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Appraisal">
+              <MappingFragment StoreEntitySet="tbl_Appraisal">
+                <ScalarProperty Name="Appraisal_Id" ColumnName="Appraisal_Id" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
+                <ScalarProperty Name="assessment_startdate" ColumnName="assessment_startdate" />
+                <ScalarProperty Name="assessment_enddate" ColumnName="assessment_enddate" />
+                <ScalarProperty Name="AppraisalType_Id" ColumnName="AppraisalType_Id" />
+                <ScalarProperty Name="AppraisalPurpose_Id" ColumnName="AppraisalPurpose_Id" />
+                <ScalarProperty Name="AppraisalForm_Id" ColumnName="AppraisalForm_Id" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AppraisalPurpose">
+            <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalPurpose">
+              <MappingFragment StoreEntitySet="tbl_AppraisalPurpose">
+                <ScalarProperty Name="AppraisalPurpose_Id" ColumnName="AppraisalPurpose_Id" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="appraisal_purpose" ColumnName="appraisal_purpose" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AppraisalStaff">
+            <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalStaff">
+              <MappingFragment StoreEntitySet="tbl_AppraisalStaff">
+                <ScalarProperty Name="AppraisalStaff_Id" ColumnName="AppraisalStaff_Id" />
+                <ScalarProperty Name="Appraisal_Id" ColumnName="Appraisal_Id" />
+                <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+                <ScalarProperty Name="AppraisalStatus_Id" ColumnName="AppraisalStatus_Id" />
+                <ScalarProperty Name="Form_Id" ColumnName="Form_Id" />
+                <ScalarProperty Name="Sec1_total_points_score" ColumnName="Sec1_total_points_score" />
+                <ScalarProperty Name="Sec1_overall_percent" ColumnName="Sec1_overall_percent" />
+                <ScalarProperty Name="Sec2_total_points_score" ColumnName="Sec2_total_points_score" />
+                <ScalarProperty Name="Sec2_overall_percent" ColumnName="Sec2_overall_percent" />
+                <ScalarProperty Name="PerformanceRating_Id" ColumnName="PerformanceRating_Id" />
+                <ScalarProperty Name="PO_1" ColumnName="PO_1" />
+                <ScalarProperty Name="PO_2" ColumnName="PO_2" />
+                <ScalarProperty Name="PO_3" ColumnName="PO_3" />
+                <ScalarProperty Name="PO_4" ColumnName="PO_4" />
+                <ScalarProperty Name="PO_5" ColumnName="PO_5" />
+                <ScalarProperty Name="PO_6" ColumnName="PO_6" />
+                <ScalarProperty Name="PO_7" ColumnName="PO_7" />
+                <ScalarProperty Name="PO_8" ColumnName="PO_8" />
+                <ScalarProperty Name="PO_9" ColumnName="PO_9" />
+                <ScalarProperty Name="PO_10" ColumnName="PO_10" />
+                <ScalarProperty Name="kpi_1" ColumnName="kpi_1" />
+                <ScalarProperty Name="kpi_2" ColumnName="kpi_2" />
+                <ScalarProperty Name="kpi_3" ColumnName="kpi_3" />
+                <ScalarProperty Name="kpi_4" ColumnName="kpi_4" />
+                <ScalarProperty Name="kpi_5" ColumnName="kpi_5" />
+                <ScalarProperty Name="kpi_6" ColumnName="kpi_6" />
+                <ScalarProperty Name="kpi_7" ColumnName="kpi_7" />
+                <ScalarProperty Name="kpi_8" ColumnName="kpi_8" />
+                <ScalarProperty Name="kpi_9" ColumnName="kpi_9" />
+                <ScalarProperty Name="kpi_10" ColumnName="kpi_10" />
+                <ScalarProperty Name="date_to_complete_PO_1" ColumnName="date_to_complete_PO_1" />
+                <ScalarProperty Name="date_to_complete_PO_2" ColumnName="date_to_complete_PO_2" />
+                <ScalarProperty Name="date_to_complete_PO_3" ColumnName="date_to_complete_PO_3" />
+                <ScalarProperty Name="date_to_complete_PO_4" ColumnName="date_to_complete_PO_4" />
+                <ScalarProperty Name="date_to_complete_PO_5" ColumnName="date_to_complete_PO_5" />
+                <ScalarProperty Name="date_to_complete_PO_6" ColumnName="date_to_complete_PO_6" />
+                <ScalarProperty Name="date_to_complete_PO_7" ColumnName="date_to_complete_PO_7" />
+                <ScalarProperty Name="date_to_complete_PO_8" ColumnName="date_to_complete_PO_8" />
+                <ScalarProperty Name="date_to_complete_PO_9" ColumnName="date_to_complete_PO_9" />
+                <ScalarProperty Name="date_to_complete_PO_10" ColumnName="date_to_complete_PO_10" />
+                <ScalarProperty Name="PO_Rating_1" ColumnName="PO_Rating_1" />
+                <ScalarProperty Name="PO_Rating_2" ColumnName="PO_Rating_2" />
+                <ScalarProperty Name="PO_Rating_3" ColumnName="PO_Rating_3" />
+                <ScalarProperty Name="PO_Rating_4" ColumnName="PO_Rating_4" />
+                <ScalarProperty Name="PO_Rating_5" ColumnName="PO_Rating_5" />
+                <ScalarProperty Name="PO_Rating_6" ColumnName="PO_Rating_6" />
+                <ScalarProperty Name="PO_Rating_7" ColumnName="PO_Rating_7" />
+                <ScalarProperty Name="PO_Rating_8" ColumnName="PO_Rating_8" />
+                <ScalarProperty Name="PO_Rating_9" ColumnName="PO_Rating_9" />
+                <ScalarProperty Name="PO_Rating_10" ColumnName="PO_Rating_10" />
+                <ScalarProperty Name="ro_other_projects" ColumnName="ro_other_projects" />
+                <ScalarProperty Name="ro_strengths" ColumnName="ro_strengths" />
+                <ScalarProperty Name="ro_improvements_followup" ColumnName="ro_improvements_followup" />
+                <ScalarProperty Name="ro_achievements" ColumnName="ro_achievements" />
+                <ScalarProperty Name="DO_1" ColumnName="DO_1" />
+                <ScalarProperty Name="DO_2" ColumnName="DO_2" />
+                <ScalarProperty Name="DO_3" ColumnName="DO_3" />
+                <ScalarProperty Name="DO_4" ColumnName="DO_4" />
+                <ScalarProperty Name="DO_5" ColumnName="DO_5" />
+                <ScalarProperty Name="DO_6" ColumnName="DO_6" />
+                <ScalarProperty Name="DO_7" ColumnName="DO_7" />
+                <ScalarProperty Name="DO_8" ColumnName="DO_8" />
+                <ScalarProperty Name="DO_9" ColumnName="DO_9" />
+                <ScalarProperty Name="DO_10" ColumnName="DO_10" />
+                <ScalarProperty Name="actions_to_achieve_DO_1" ColumnName="actions_to_achieve_DO_1" />
+                <ScalarProperty Name="actions_to_achieve_DO_2" ColumnName="actions_to_achieve_DO_2" />
+                <ScalarProperty Name="actions_to_achieve_DO_3" ColumnName="actions_to_achieve_DO_3" />
+                <ScalarProperty Name="actions_to_achieve_DO_4" ColumnName="actions_to_achieve_DO_4" />
+                <ScalarProperty Name="actions_to_achieve_DO_5" ColumnName="actions_to_achieve_DO_5" />
+                <ScalarProperty Name="actions_to_achieve_DO_6" ColumnName="actions_to_achieve_DO_6" />
+                <ScalarProperty Name="actions_to_achieve_DO_7" ColumnName="actions_to_achieve_DO_7" />
+                <ScalarProperty Name="actions_to_achieve_DO_8" ColumnName="actions_to_achieve_DO_8" />
+                <ScalarProperty Name="actions_to_achieve_DO_9" ColumnName="actions_to_achieve_DO_9" />
+                <ScalarProperty Name="actions_to_achieve_DO_10" ColumnName="actions_to_achieve_DO_10" />
+                <ScalarProperty Name="current_or_future_role_1" ColumnName="current_or_future_role_1" />
+                <ScalarProperty Name="current_or_future_role_2" ColumnName="current_or_future_role_2" />
+                <ScalarProperty Name="current_or_future_role_3" ColumnName="current_or_future_role_3" />
+                <ScalarProperty Name="current_or_future_role_4" ColumnName="current_or_future_role_4" />
+                <ScalarProperty Name="current_or_future_role_5" ColumnName="current_or_future_role_5" />
+                <ScalarProperty Name="current_or_future_role_6" ColumnName="current_or_future_role_6" />
+                <ScalarProperty Name="current_or_future_role_7" ColumnName="current_or_future_role_7" />
+                <ScalarProperty Name="current_or_future_role_8" ColumnName="current_or_future_role_8" />
+                <ScalarProperty Name="current_or_future_role_9" ColumnName="current_or_future_role_9" />
+                <ScalarProperty Name="current_or_future_role_10" ColumnName="current_or_future_role_10" />
+                <ScalarProperty Name="date_to_complete_DO_1" ColumnName="date_to_complete_DO_1" />
+                <ScalarProperty Name="date_to_complete_DO_2" ColumnName="date_to_complete_DO_2" />
+                <ScalarProperty Name="date_to_complete_DO_3" ColumnName="date_to_complete_DO_3" />
+                <ScalarProperty Name="date_to_complete_DO_4" ColumnName="date_to_complete_DO_4" />
+                <ScalarProperty Name="date_to_complete_DO_5" ColumnName="date_to_complete_DO_5" />
+                <ScalarProperty Name="date_to_complete_DO_6" ColumnName="date_to_complete_DO_6" />
+                <ScalarProperty Name="date_to_complete_DO_7" ColumnName="date_to_complete_DO_7" />
+                <ScalarProperty Name="date_to_complete_DO_8" ColumnName="date_to_complete_DO_8" />
+                <ScalarProperty Name="date_to_complete_DO_9" ColumnName="date_to_complete_DO_9" />
+                <ScalarProperty Name="date_to_complete_DO_10" ColumnName="date_to_complete_DO_10" />
+                <ScalarProperty Name="outcomes_achieved_1" ColumnName="outcomes_achieved_1" />
+                <ScalarProperty Name="outcomes_achieved_2" ColumnName="outcomes_achieved_2" />
+                <ScalarProperty Name="outcomes_achieved_3" ColumnName="outcomes_achieved_3" />
+                <ScalarProperty Name="outcomes_achieved_4" ColumnName="outcomes_achieved_4" />
+                <ScalarProperty Name="outcomes_achieved_5" ColumnName="outcomes_achieved_5" />
+                <ScalarProperty Name="outcomes_achieved_6" ColumnName="outcomes_achieved_6" />
+                <ScalarProperty Name="outcomes_achieved_7" ColumnName="outcomes_achieved_7" />
+                <ScalarProperty Name="outcomes_achieved_8" ColumnName="outcomes_achieved_8" />
+                <ScalarProperty Name="outcomes_achieved_9" ColumnName="outcomes_achieved_9" />
+                <ScalarProperty Name="outcomes_achieved_10" ColumnName="outcomes_achieved_10" />
+                <ScalarProperty Name="staff_comments" ColumnName="staff_comments" />
+                <ScalarProperty Name="ready_for_promotion" ColumnName="ready_for_promotion" />
+                <ScalarProperty Name="to_promote_to" ColumnName="to_promote_to" />
+                <ScalarProperty Name="has_potential_for_promotion" ColumnName="has_potential_for_promotion" />
+                <ScalarProperty Name="to_consider_on" ColumnName="to_consider_on" />
+                <ScalarProperty Name="needs_improvement" ColumnName="needs_improvement" />
+                <ScalarProperty Name="recommend_discipinary_action" ColumnName="recommend_discipinary_action" />
+                <ScalarProperty Name="salary_increment" ColumnName="salary_increment" />
+                <ScalarProperty Name="StatsCode_Id_salary_increment" ColumnName="StatsCode_Id_salary_increment" />
+                <ScalarProperty Name="performance_bonus" ColumnName="performance_bonus" />
+                <ScalarProperty Name="StatsCode_Id_perf_bonus" ColumnName="StatsCode_Id_perf_bonus" />
+                <ScalarProperty Name="to_confirm_as" ColumnName="to_confirm_as" />
+                <ScalarProperty Name="ext_probation_months" ColumnName="ext_probation_months" />
+                <ScalarProperty Name="termination_last_day_of_service" ColumnName="termination_last_day_of_service" />
+                <ScalarProperty Name="current_salary_fixed" ColumnName="current_salary_fixed" />
+                <ScalarProperty Name="current_salary_vc" ColumnName="current_salary_vc" />
+                <ScalarProperty Name="salary_adj_fixed" ColumnName="salary_adj_fixed" />
+                <ScalarProperty Name="salary_adj_vc" ColumnName="salary_adj_vc" />
+                <ScalarProperty Name="salary_adj_eff_date" ColumnName="salary_adj_eff_date" />
+                <ScalarProperty Name="month_of_next_annual_incr" ColumnName="month_of_next_annual_incr" />
+                <ScalarProperty Name="ass_panel_approval" ColumnName="ass_panel_approval" />
+                <ScalarProperty Name="ass_panel_comments" ColumnName="ass_panel_comments" />
+                <ScalarProperty Name="mgt_concurred_with_assessment" ColumnName="mgt_concurred_with_assessment" />
+                <ScalarProperty Name="mgt_partially_concurred_with_assessment" ColumnName="mgt_partially_concurred_with_assessment" />
+                <ScalarProperty Name="mgt_donot_concur_with_assessment" ColumnName="mgt_donot_concur_with_assessment" />
+                <ScalarProperty Name="mgt_comments" ColumnName="mgt_comments" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="appraisal_complete_date" ColumnName="appraisal_complete_date" />
+                <ScalarProperty Name="appraisal_update_count_after_completion" ColumnName="appraisal_update_count_after_completion" />
+                <ScalarProperty Name="recommendation_others" ColumnName="recommendation_others" />
+                <ScalarProperty Name="recommendation_others_specify" ColumnName="recommendation_others_specify" />
+                <ScalarProperty Name="job_scope_probationary_period" ColumnName="job_scope_probationary_period" />
+                <ScalarProperty Name="confirmation" ColumnName="confirmation" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+                <ScalarProperty Name="termination" ColumnName="termination" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AppraisalStaffDetails">
+            <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalStaffDetails">
+              <MappingFragment StoreEntitySet="tbl_AppraisalStaffDetails">
+                <ScalarProperty Name="AppraisalStaffDetails_Id" ColumnName="AppraisalStaffDetails_Id" />
+                <ScalarProperty Name="AppraisalStaff_Id" ColumnName="AppraisalStaff_Id" />
+                <ScalarProperty Name="PerformanceCriterion_Id" ColumnName="PerformanceCriterion_Id" />
+                <ScalarProperty Name="ro_perf_rating_yearMid" ColumnName="ro_perf_rating_yearMid" />
+                <ScalarProperty Name="ro_perf_rating_yearEnd" ColumnName="ro_perf_rating_yearEnd" />
+                <ScalarProperty Name="staff_comments" ColumnName="staff_comments" />
+                <ScalarProperty Name="ro_comments" ColumnName="ro_comments" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AppraisalStatus">
+            <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalStatus">
+              <MappingFragment StoreEntitySet="tbl_AppraisalStatus">
+                <ScalarProperty Name="AppraisalStatus_Id" ColumnName="AppraisalStatus_Id" />
+                <ScalarProperty Name="appraisal_status" ColumnName="appraisal_status" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CodeTable">
+            <EntityTypeMapping TypeName="PMASModel.tbl_CodeTable">
+              <MappingFragment StoreEntitySet="tbl_CodeTable">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Company">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Company">
+              <MappingFragment StoreEntitySet="tbl_Company">
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CryptoKey">
+            <EntityTypeMapping TypeName="PMASModel.tbl_CryptoKey">
+              <MappingFragment StoreEntitySet="tbl_CryptoKey">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+                <ScalarProperty Name="Passphrase" ColumnName="Passphrase" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Algorithm" ColumnName="Algorithm" />
+                <ScalarProperty Name="Standard" ColumnName="Standard" />
+                <ScalarProperty Name="KeyValue" ColumnName="KeyValue" />
+                <ScalarProperty Name="VectorKey" ColumnName="VectorKey" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Department">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Department">
+              <MappingFragment StoreEntitySet="tbl_Department">
+                <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Designation">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Designation">
+              <MappingFragment StoreEntitySet="tbl_Designation">
+                <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_EmailNotification">
+            <EntityTypeMapping TypeName="PMASModel.tbl_EmailNotification">
+              <MappingFragment StoreEntitySet="tbl_EmailNotification">
+                <ScalarProperty Name="EmailNotification_Id" ColumnName="EmailNotification_Id" />
+                <ScalarProperty Name="from" ColumnName="from" />
+                <ScalarProperty Name="to" ColumnName="to" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="timesent" ColumnName="timesent" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="sendstatus" ColumnName="sendstatus" />
+                <ScalarProperty Name="number_of_attempts" ColumnName="number_of_attempts" />
+                <ScalarProperty Name="errors" ColumnName="errors" />
+                <ScalarProperty Name="notification_type_id" ColumnName="notification_type_id" />
+                <ScalarProperty Name="AppraisalStaff_Id" ColumnName="AppraisalStaff_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Menu">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Menu">
+              <MappingFragment StoreEntitySet="tbl_Menu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="MenuLevel" ColumnName="MenuLevel" />
+                <ScalarProperty Name="ParentMenuID" ColumnName="ParentMenuID" />
+                <ScalarProperty Name="SortIndexSerialNo" ColumnName="SortIndexSerialNo" />
+                <ScalarProperty Name="MenuCategory" ColumnName="MenuCategory" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Module">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Module">
+              <MappingFragment StoreEntitySet="tbl_Module">
+                <ScalarProperty Name="Module_Id" ColumnName="Module_Id" />
+                <ScalarProperty Name="module_name" ColumnName="module_name" />
+                <ScalarProperty Name="module_desc" ColumnName="module_desc" />
+                <ScalarProperty Name="ModuleGroup_Id" ColumnName="ModuleGroup_Id" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="icon_name" ColumnName="icon_name" />
+                <ScalarProperty Name="sortkey" ColumnName="sortkey" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ModuleGroup">
+            <EntityTypeMapping TypeName="PMASModel.tbl_ModuleGroup">
+              <MappingFragment StoreEntitySet="tbl_ModuleGroup">
+                <ScalarProperty Name="ModuleGroup_Id" ColumnName="ModuleGroup_Id" />
+                <ScalarProperty Name="module_group" ColumnName="module_group" />
+                <ScalarProperty Name="sortkey" ColumnName="sortkey" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PasswordHistory">
+            <EntityTypeMapping TypeName="PMASModel.tbl_PasswordHistory">
+              <MappingFragment StoreEntitySet="tbl_PasswordHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserAccountID" ColumnName="UserAccountID" />
+                <ScalarProperty Name="OldPassword" ColumnName="OldPassword" />
+                <ScalarProperty Name="Saltkey" ColumnName="Saltkey" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PerformanceCriterion">
+            <EntityTypeMapping TypeName="PMASModel.tbl_PerformanceCriterion">
+              <MappingFragment StoreEntitySet="tbl_PerformanceCriterion">
+                <ScalarProperty Name="PerformanceCriterion_Id" ColumnName="PerformanceCriterion_Id" />
+                <ScalarProperty Name="Form_Id" ColumnName="Form_Id" />
+                <ScalarProperty Name="Section_Id" ColumnName="Section_Id" />
+                <ScalarProperty Name="SubSection_Id" ColumnName="SubSection_Id" />
+                <ScalarProperty Name="qn_title" ColumnName="qn_title" />
+                <ScalarProperty Name="performance_criterion" ColumnName="performance_criterion" />
+                <ScalarProperty Name="qno" ColumnName="qno" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PerformanceRating">
+            <EntityTypeMapping TypeName="PMASModel.tbl_PerformanceRating">
+              <MappingFragment StoreEntitySet="tbl_PerformanceRating">
+                <ScalarProperty Name="PerformanceRating_Id" ColumnName="PerformanceRating_Id" />
+                <ScalarProperty Name="performance_rating" ColumnName="performance_rating" />
+                <ScalarProperty Name="perf_cat" ColumnName="perf_cat" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Program">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Program">
+              <MappingFragment StoreEntitySet="tbl_Program">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProgramURL" ColumnName="ProgramURL" />
+                <ScalarProperty Name="IsParentProgram" ColumnName="IsParentProgram" />
+                <ScalarProperty Name="ParentProgramID" ColumnName="ParentProgramID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Rank">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Rank">
+              <MappingFragment StoreEntitySet="tbl_Rank">
+                <ScalarProperty Name="Rank_Id" ColumnName="Rank_Id" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Role">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Role">
+              <MappingFragment StoreEntitySet="tbl_Role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RoleMenuPermission">
+            <EntityTypeMapping TypeName="PMASModel.tbl_RoleMenuPermission">
+              <MappingFragment StoreEntitySet="tbl_RoleMenuPermission">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedUserID" ColumnName="UpdatedUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_StatsCode">
+            <EntityTypeMapping TypeName="PMASModel.tbl_StatsCode">
+              <MappingFragment StoreEntitySet="tbl_StatsCode">
+                <ScalarProperty Name="StatsCode_Id" ColumnName="StatsCode_Id" />
+                <ScalarProperty Name="stats_code" ColumnName="stats_code" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserAccount">
+            <EntityTypeMapping TypeName="PMASModel.tbl_UserAccount">
+              <MappingFragment StoreEntitySet="tbl_UserAccount">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="IsFirstTimeLogin" ColumnName="IsFirstTimeLogin" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
+                <ScalarProperty Name="LoginFailedAttempt" ColumnName="LoginFailedAttempt" />
+                <ScalarProperty Name="Saltkey" ColumnName="Saltkey" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserProfile">
+            <EntityTypeMapping TypeName="PMASModel.tbl_UserProfile">
+              <MappingFragment StoreEntitySet="tbl_UserProfile">
+                <ScalarProperty Name="ReportingOfficer" ColumnName="ReportingOfficer" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserAccountID" ColumnName="UserAccountID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+                <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+                <ScalarProperty Name="Rank_Id" ColumnName="Rank_Id" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+                <ScalarProperty Name="LastDayDate" ColumnName="LastDayDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="JobDescriptionForm" ColumnName="JobDescriptionForm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserRole">
+            <EntityTypeMapping TypeName="PMASModel.tbl_UserRole">
+              <MappingFragment StoreEntitySet="tbl_UserRole">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_WebAPI_RequestLog">
+            <EntityTypeMapping TypeName="PMASModel.tbl_WebAPI_RequestLog">
+              <MappingFragment StoreEntitySet="tbl_WebAPI_RequestLog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RequestedSouceID" ColumnName="RequestedSouceID" />
+                <ScalarProperty Name="RequestedPublicKey" ColumnName="RequestedPublicKey" />
+                <ScalarProperty Name="GeneratedKeyword" ColumnName="GeneratedKeyword" />
+                <ScalarProperty Name="EncryptedString" ColumnName="EncryptedString" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_WebAPISetting">
+            <EntityTypeMapping TypeName="PMASModel.tbl_WebAPISetting">
+              <MappingFragment StoreEntitySet="tbl_WebAPISetting">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RequestSource" ColumnName="RequestSource" />
+                <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+                <ScalarProperty Name="PrivateKey" ColumnName="PrivateKey" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_AppraisalType">
+            <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalType">
+              <MappingFragment StoreEntitySet="tbl_AppraisalType">
+                <ScalarProperty Name="AppraisalType_Id" ColumnName="AppraisalType_Id" />
+                <ScalarProperty Name="appraisal_type" ColumnName="appraisal_type" />
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+                <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Campaign">
+            <EntityTypeMapping TypeName="PMASModel.tbl_Campaign">
+              <MappingFragment StoreEntitySet="tbl_Campaign">
+                <ScalarProperty Name="Campaign_Id" ColumnName="Campaign_Id" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="createdby" ColumnName="createdby" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PMASModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PMASModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PMASModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PMASModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PMASModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PMASModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PMASModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PMASModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PMASModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

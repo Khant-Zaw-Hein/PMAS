@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<!--
+Author: Keenthemes
+Product Name: Metronic
+Product Version: 8.1.7
+Purchase: https://1.envato.market/EA4JP
+Website: http://www.keenthemes.com
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+<!--begin::Head-->
+<head>
+    <base href="" />
+    <title>Performance Appraisal System</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
+    <meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme & Template" />
+    <meta property="og:url" content="https://www.seacaremanpower.com/home.aspx" />
+    <meta property="og:site_name" content="Keenthemes | Metronic" />
+    <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+    <link rel="shortcut icon" href="~/theme/assets/media/logos/favicon.ico" />
+    <!--begin::Fonts(mandatory for all pages)-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <link href="~/Theme/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/Theme/assets/plugins/custom/leaflet/leaflet.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/Theme/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+    <link href="~/Theme/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/Theme/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Stylesheets Bundle-->
+
+    <style type="text/css">
+        .menu-state-primary .menu-item.hover:not(.here) > .menu-link:not(.disabled):not(.active):not(.here) .menu-title,
+        .menu-state-primary .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) .menu-title {
+            color: var(--kt-info);
+        }
+    </style>
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed aside-fixed aside-secondary-disabled">
+    <!--begin::Theme mode setup on page load-->
+    <script>var defaultThemeMode = "light"; var themeMode; if (document.documentElement) { if (document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if (localStorage.getItem("data-bs-theme") !== null) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
+    <!--end::Theme mode setup on page load-->
+    <!--begin::Main-->
+    <!--begin::Root-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="page d-flex flex-row flex-column-fluid">
+            <!--begin::Aside-->
+            <!--end::Aside-->
+            <!--begin::Wrapper-->
+            <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper" style="padding-left:0px">
+                <!--begin::Header-->
+                <div id="kt_header" style="left:0px;height:80px;" class="header align-items-stretch">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+                        <!--begin::Aside mobile toggle-->
+                        <!--end::Aside mobile toggle-->
+                        <!--begin::Mobile logo-->
+                        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+                            <a href="../../demo4/dist/index.html" class="d-lg-none">
+                                <img alt="Logo" src="~/Images/SOS.jpg" class="h-25px" />
+                                @*<img alt="Logo" src="~/Images/SeacareLogo.png" class="h-25px" />*@
+                            </a>
+                        </div>
+                        <!--end::Mobile logo-->
+                        <div class="d-flex align-items-center" id="kt_header_wrapper">
+                            <!--begin::Page title-->
+                            <div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-20 pb-5 pb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', lg: '#kt_header_wrapper'}">
+                                <!--begin::Heading-->
+                                @*<h1 class="text-dark fw-bold my-1 fs-3 lh-1">Dashboard</h1>*@
+                                <a href="/Home/Index">
+                                    <img alt="Logo" src="~/Images/SOS.jpg" class="h-70px" />
+                                </a>
+                                <!--end::Heading-->
+                            </div>
+                            <!--end::Page title=-->
+                        </div>
+                        <!--begin::Wrapper-->
+                        <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+                            <!--begin::Navbar-->
+                            <div class="d-flex align-items-stretch" id="kt_header_nav">
+                                <!--begin::Menu wrapper-->
+                                @if (Session["CurrentUserID"] != null)
+                                {
+                                    Html.RenderAction("GetMenuData", "MasterPage");
+                                }
+                                else
+                                {
+                                    Html.RenderAction("GetMenuData", "MasterPage");
+                                }
+
+                                <!--end::Menu wrapper-->
+
+                            </div>
+                            <!--end::Navbar-->
+                            <!--begin::Toolbar wrapper-->
+                            <div class="d-flex align-items-stretch justify-self-end flex-shrink-0">
+                                <!--begin::Logout-->
+                                <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_login_menu_toggle">
+                                    <!--begin::Menu wrapper-->
+                                    <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+                                        <button type="button" id="kt_login_signin_submit" class="btn btn-success font-weight-bold px-9 py-4 my-3" onclick="location.href='@Url.Action("Index", "Login")'">
+                                            <i class="fa fa-user"></i>
+                                            Sign Out
+                                        </button>
+                                    </div>            
+
+                                    <!--end::Menu wrapper-->
+                                </div>
+                                <!--end::Logout-->
+                                <!--begin::Heaeder menu toggle-->
+                                <div class="d-flex align-items-center d-lg-none ms-3 me-n1" title="Show header menu">
+                                    <div class="btn btn-icon btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" id="kt_header_menu_mobile_toggle">
+                                        <!--begin::Svg Icon | path: icons/duotune/text/txt001.svg-->
+                                        <span class="svg-icon svg-icon-1">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z" fill="currentColor" />
+                                                <path opacity="0.3" d="M21 16H3C2.4 16 2 15.6 2 15V14C2 13.4 2.4 13 3 13H21C21.6 13 22 13.4 22 14V15C22 15.6 21.6 16 21 16ZM14 20V19C14 18.4 13.6 18 13 18H3C2.4 18 2 18.4 2 19V20C2 20.6 2.4 21 3 21H13C13.6 21 14 20.6 14 20Z" fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                        <!--end::Svg Icon-->
+                                    </div>
+                                </div>
+                                <!--end::Heaeder menu toggle-->
+                            </div>
+                            <!--end::Toolbar wrapper-->
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Header-->
+                @RenderBody()
+                <!--begin::Footer-->
+                <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+                    <!--begin::Container-->
+                    <div class="container-xxl d-flex flex-column flex-md-row flex-stack">
+                        <!--begin::Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-gray-400 fw-semibold me-1">Created by</span>
+                            <a href="https://keenthemes.com" target="_blank" class="text-muted text-hover-primary fw-semibold me-2 fs-6">Keenthemes</a>
+                        </div>
+                        <!--end::Copyright-->
+                        <!--begin::Menu-->
+                        <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+                            <li class="menu-item">
+                                <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
+                            </li>
+                        </ul>
+                        <!--end::Menu-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+    <!--end::Root-->
+    <!--end::Modals-->
+    <!--begin::Javascript-->
+    <script>var hostUrl = "~/theme/assets/";</script>
+    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+    <script src="~/theme/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/theme/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Vendors Javascript(used for this page only)-->
+    <script src="~/theme/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+    <script src="~/theme/assets/plugins/custom/leaflet/leaflet.bundle.js"></script>
+    <script src="~/theme/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used for this page only)-->
+    <script src="~/theme/assets/js/widgets.bundle.js"></script>
+    <script src="~/theme/assets/js/custom/widgets.js"></script>
+    <script src="~/theme/assets/js/custom/apps/chat/chat.js"></script>
+    <script src="~/theme/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="~/theme/assets/js/custom/utilities/modals/select-location.js"></script>
+    <script src="~/theme/assets/js/custom/utilities/modals/users-search.js"></script>
+    <!--end::Custom Javascript-->
+
+    <!--end::Javascript-->
+    @RenderSection("scripts", false)
+</body>
+<!--end::Body-->
+</html>

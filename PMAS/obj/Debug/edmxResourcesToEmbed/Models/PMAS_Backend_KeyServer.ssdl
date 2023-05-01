@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMAS_Backend_KeyServerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_CryptoSecret">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KeyName" Type="varchar(max)" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Algorithm" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Standard" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="KeyPassphrase" Type="varchar" MaxLength="64" />
+    <Property Name="CertificateName" Type="varchar" MaxLength="32" />
+    <Property Name="ValidFrom" Type="datetime" Nullable="false" />
+    <Property Name="ValidTo" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedUserID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityContainer Name="PMAS_Backend_KeyServerModelStoreContainer">
+    <EntitySet Name="tbl_CryptoSecret" EntityType="Self.tbl_CryptoSecret" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

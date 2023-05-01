@@ -1,0 +1,358 @@
+﻿@{
+    ViewBag.Title = "List of Staff Appraisals";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<html>
+<body>
+    <div class="container-xxl mt-5" id="kt_content_container">
+        <!--begin::Navbar-->
+        <div class="card mb-5 mb-xl-10">
+            <!--begin::Card header-->
+            <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
+                 data-bs-target="#kt_account_profile_details" aria-expanded="true"
+                 aria-controls="kt_account_profile_details">
+                <!--begin::Card title-->
+                <div class="card-title m-0">
+                    <h3 class="fw-bold m-0">@ViewBag.Title</h3>
+                </div>
+                <!--end::Card title-->
+            </div>
+            <!--begin::Card header-->
+            <!--begin::Content-->
+            <div id="kt_account_settings_profile_details" class="collapse show"
+                 data-select2-id="select2-data-kt_account_settings_profile_details">
+                <!--begin::Form-->
+                <form id="kt_account_profile_details_form" class="form fv-plugins-bootstrap5 fv-plugins-framework"
+                      novalidate="novalidate" data-select2-id="select2-data-kt_account_profile_details_form">
+                    <!--begin::Card body-->
+                    <div class="card-body border-top p-9">
+                        <!--begin::Input group-->
+                        <!--begin::Input group-->
+                        <!--begin::Card header-->
+                        <div class="card-header">
+                            <!--begin::Card title-->
+                            <div class="card-title flex-column"></div>
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar my-1">
+                                <!--begin::Search-->
+                                <div class="d-flex align-items-center position-relative my-2">
+                                    <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+                                    <span class="svg-icon svg-icon-3 position-absolute ms-3">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="currentColor"></rect>
+                                            <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="currentColor"></path>
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->
+                                    <input type="text" id="kt_filter_search" class="form-control form-control-solid form-select w-350px ps-12" placeholder="Search Employee">
+                                </div>
+                                <!--end::Search-->
+                            </div>
+                            <!--begin::Card toolbar-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <div id="kt_profile_overview_table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                    <div class="table-responsive">
+                                        <table id="kt_profile_overview_table" class="table table-row-bordered table-row-dashed gy-4 align-middle fw-bold dataTable no-footer">
+                                            <!--begin::Head-->
+                                            <thead class="fs-7 text-gray-400 text-uppercase" ">
+                                                <tr>
+                                                    <th class="min-w-50px sorting" tabindex="0" aria-controls="kt_profile_overview_table" rowspan="2" colspan="1" aria-label="Purpose of Appraisal: activate to sort column ascending" style="width: 75px; text-align: center; vertical-align: middle">Purpose of Appraisal</th>
+                                                    <th class="min-w-100px sorting" tabindex="0" aria-controls="kt_profile_overview_table" rowspan="2" colspan="1" aria-label="Employee: activate to sort column ascending" style="width: 50px; text-align: center;vertical-align:middle">Employee</th>
+                                                    <th class="min-w-100px sorting" tabindex="0" aria-controls="kt_profile_overview_table" rowspan="2" colspan="1" aria-label="Employee: activate to sort column ascending" style="width: 50px; text-align: center;vertical-align:middle">Rank</th>
+                                                    <th class="min-w-100px sorting" tabindex="0" aria-controls="kt_profile_overview_table" rowspan="2" colspan="1" aria-label="Department: activate to sort column ascending" style="width: 125px; text-align: center;vertical-align:middle">Department</th>
+                                                    <th class="min-w-50px sorting" tabindex="0" aria-controls="kt_profile_overview_table" rowspan="2" colspan="1" aria-label="Appraisal Status: activate to sort column ascending" style="width: 50px; text-align: center;vertical-align:middle">Appraisal Status</th>
+                                                    <th class="min-w-50px sorting" tabindex="0" aria-controls="kt_profile_overview_table" rowspan="2" colspan="1" aria-label="Update: activate to sort column ascending" style="width: 50px; text-align: center;vertical-align:middle">Update</th>
+
+                                                </tr>
+
+                                            </thead>
+                                            <!--end::Head-->
+                                            <!--begin::Body-->
+                                            <tbody class="fs-6">
+                                                @for (int i = 1; i <= 10; i++)
+                                                {
+                                                    <tr style="text-align:center">
+                                                        <td>Annual</td>
+                                                        <td>David</td>
+                                                        <td>Junior Officer</td>
+                                                        <td>Information Technology</td>
+                                                        <td><span class="badge badge-light-warning fw-bold px-4 py-3">Pending Appraisee</span></td>
+                                                        <td><a href="#" class="btn btn-secondary">View</a></td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                            <!--end::Body-->
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
+                                            <div class="dataTables_length" id="kt_profile_overview_table_length">
+                                                <label>
+                                                    <select name="kt_profile_overview_table_length" aria-controls="kt_profile_overview_table" class="form-select form-select-sm form-select-solid">
+                                                        <option value="10">10</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                        <option value="100">100</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                        </div><div class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end">
+                                            <div class="dataTables_paginate paging_simple_numbers" id="kt_profile_overview_table_paginate">
+                                                <ul class="pagination pagination-circle pagination-outline">
+                                                    <li class="paginate_button  page-item previous disabled" id="kt_profile_overview_table_previous">
+                                                        <a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="0" tabindex="0" class="page-link"><i class="previous"></i></a>
+                                                    </li>
+                                                    <li class="paginate_button page-item active">
+                                                        <a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                                                    </li>
+                                                    <li class="paginate_button page-item ">
+                                                        <a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                                                    </li>
+                                                    <li class="paginate_button page-item ">
+                                                        <a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                                                    </li>
+                                                    <li class="paginate_button page-item next" id="kt_profile_overview_table_next">
+                                                        <a href="#" aria-controls="kt_profile_overview_table" data-dt-idx="4" tabindex="0" class="page-link"><i class="next"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Table-->
+                            </div>
+                            <!--end::Table container-->
+                        </div>
+                        <!--end::Card body-->
+                        <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+                        <!--end::Input group-->
+                    </div>
+                    <!--end::Card body-->
+                    <!--begin::Actions-->
+                    <div class="card-footer d-flex justify-content-end py-6 px-9">
+                        <button type="reset" class="btn btn-light btn-active-light-warning me-2">Discard</button>
+                        <button type="submit" class="btn btn-success" id="kt_account_profile_details_submit">
+                            Save
+                            Changes
+                        </button>
+                    </div>
+                    <!--end::Actions-->
+                    <input type="hidden">
+                </form>
+                <!--end::Form-->
+            </div>
+            <!--end::Content-->
+        </div>
+
+    </div>
+    <!--begin::Javascript-->
+    <script>var hostUrl = "~/Theme/assets/";</script>
+    <!--begin::Global Javascript Bundle(mandatory for all pages)-->
+    <script src="~/Theme/assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/Theme/assets/js/scripts.bundle.js"></script>
+    <!--end::Global Javascript Bundle-->
+    <!--begin::Vendors Javascript(used for this page only)-->
+    <script src="~/Theme/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Vendors Javascript-->
+    <!--begin::Custom Javascript(used for this page only)-->
+    <script src="~/Theme/assets/js/custom/account/settings/signin-methods.js"></script>
+    <script src="~/Theme/assets/js/custom/account/settings/profile-details.js"></script>
+    <script src="~/Theme/assets/js/custom/account/settings/deactivate-account.js"></script>
+    <script src="~/Theme/assets/js/custom/pages/user-profile/general.js"></script>
+    <script src="~/Theme/assets/js/widgets.bundle.js"></script>
+    <script src="~/Theme/assets/js/custom/widgets.js"></script>
+    <script src="~/Theme/assets/js/custom/apps/chat/chat.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/two-factor-authentication.js"></script>
+    <script src="~/Theme/assets/js/custom/utilities/modals/users-search.js"></script>
+    <!--end::Custom Javascript-->
+    <script>
+        $("#kt_datepicker_1").flatpickr();
+        $("#kt_datepicker_2").flatpickr();
+    </script>
+
+    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+
+
+
+    <!--end::Javascript-->
+
+
+    <svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1"
+         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev"
+         style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
+        <defs id="SvgjsDefs1002"></defs>
+        <polyline id="SvgjsPolyline1003" points="0,0"></polyline>
+        <path id="SvgjsPath1004" d="M0 0 "></path>
+    </svg>
+    <div class="flatpickr-calendar hasTime animate" tabindex="-1">
+        <div class="flatpickr-months">
+            <span class="flatpickr-prev-month">
+                <svg version="1.1"
+                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+                    <g></g>
+                    <path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z">
+                    </path>
+                </svg>
+            </span>
+            <div class="flatpickr-month">
+                <div class="flatpickr-current-month">
+                    <select class="flatpickr-monthDropdown-months" aria-label="Month"
+                            tabindex="-1">
+                        <option class="flatpickr-monthDropdown-month" value="0" tabindex="-1">January</option>
+                        <option class="flatpickr-monthDropdown-month" value="1" tabindex="-1">February</option>
+                        <option class="flatpickr-monthDropdown-month" value="2" tabindex="-1">March</option>
+                        <option class="flatpickr-monthDropdown-month" value="3" tabindex="-1">April</option>
+                        <option class="flatpickr-monthDropdown-month" value="4" tabindex="-1">May</option>
+                        <option class="flatpickr-monthDropdown-month" value="5" tabindex="-1">June</option>
+                        <option class="flatpickr-monthDropdown-month" value="6" tabindex="-1">July</option>
+                        <option class="flatpickr-monthDropdown-month" value="7" tabindex="-1">August</option>
+                        <option class="flatpickr-monthDropdown-month" value="8" tabindex="-1">September</option>
+                        <option class="flatpickr-monthDropdown-month" value="9" tabindex="-1">October</option>
+                        <option class="flatpickr-monthDropdown-month" value="10" tabindex="-1">November</option>
+                        <option class="flatpickr-monthDropdown-month" value="11" tabindex="-1">December</option>
+                    </select>
+                    <div class="numInputWrapper">
+                        <input class="numInput cur-year" type="number" tabindex="-1"
+                               aria-label="Year"><span class="arrowUp"></span><span class="arrowDown"></span>
+                    </div>
+                </div>
+            </div><span class="flatpickr-next-month">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17">
+                    <g></g>
+                    <path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z">
+                    </path>
+                </svg>
+            </span>
+        </div>
+        <div class="flatpickr-innerContainer">
+            <div class="flatpickr-rContainer">
+                <div class="flatpickr-weekdays">
+                    <div class="flatpickr-weekdaycontainer">
+                        <span class="flatpickr-weekday">
+                            Sun
+                        </span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">
+                            Sat
+                        </span>
+                    </div>
+                </div>
+                <div class="flatpickr-days" tabindex="-1">
+                    <div class="dayContainer">
+                        <span class="flatpickr-day prevMonthDay" aria-label="March 26, 2023"
+                              tabindex="-1">26</span>
+                        <span class="flatpickr-day prevMonthDay" aria-label="March 27, 2023"
+                              tabindex="-1">27</span>
+                        <span class="flatpickr-day prevMonthDay" aria-label="March 28, 2023"
+                              tabindex="-1">28</span>
+                        <span class="flatpickr-day prevMonthDay" aria-label="March 29, 2023"
+                              tabindex="-1">29</span>
+                        <span class="flatpickr-day prevMonthDay" aria-label="March 30, 2023"
+                              tabindex="-1">30</span>
+                        <span class="flatpickr-day prevMonthDay" aria-label="March 31, 2023"
+                              tabindex="-1">31</span>
+                        <span class="flatpickr-day" aria-label="April 1, 2023"
+                              tabindex="-1">1</span>
+                        <span class="flatpickr-day" aria-label="April 2, 2023"
+                              tabindex="-1">2</span>
+                        <span class="flatpickr-day" aria-label="April 3, 2023"
+                              tabindex="-1">3</span>
+                        <span class="flatpickr-day" aria-label="April 4, 2023"
+                              tabindex="-1">4</span>
+                        <span class="flatpickr-day" aria-label="April 5, 2023"
+                              tabindex="-1">5</span>
+                        <span class="flatpickr-day" aria-label="April 6, 2023"
+                              tabindex="-1">6</span>
+                        <span class="flatpickr-day" aria-label="April 7, 2023"
+                              tabindex="-1">7</span>
+                        <span class="flatpickr-day" aria-label="April 8, 2023"
+                              tabindex="-1">8</span>
+                        <span class="flatpickr-day" aria-label="April 9, 2023"
+                              tabindex="-1">9</span>
+                        <span class="flatpickr-day" aria-label="April 10, 2023"
+                              tabindex="-1">10</span>
+                        <span class="flatpickr-day" aria-label="April 11, 2023"
+                              tabindex="-1">11</span>
+                        <span class="flatpickr-day today" aria-label="April 12, 2023"
+                              aria-current="date" tabindex="-1">12</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 13, 2023" tabindex="-1">13</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 14, 2023" tabindex="-1">14</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 15, 2023" tabindex="-1">15</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 16, 2023" tabindex="-1">16</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 17, 2023" tabindex="-1">17</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 18, 2023" tabindex="-1">18</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 19, 2023" tabindex="-1">19</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 20, 2023" tabindex="-1">20</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 21, 2023" tabindex="-1">21</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 22, 2023" tabindex="-1">22</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 23, 2023" tabindex="-1">23</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 24, 2023" tabindex="-1">24</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 25, 2023" tabindex="-1">25</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 26, 2023" tabindex="-1">26</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 27, 2023" tabindex="-1">27</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 28, 2023" tabindex="-1">28</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 29, 2023" tabindex="-1">29</span>
+                        <span class="flatpickr-day"
+                              aria-label="April 30, 2023" tabindex="-1">30</span>
+                        <span class="flatpickr-day nextMonthDay"
+                              aria-label="May 1, 2023" tabindex="-1">1</span>
+                        <span class="flatpickr-day nextMonthDay"
+                              aria-label="May 2, 2023" tabindex="-1">2</span>
+                        <span class="flatpickr-day nextMonthDay"
+                              aria-label="May 3, 2023" tabindex="-1">3</span>
+                        <span class="flatpickr-day nextMonthDay"
+                              aria-label="May 4, 2023" tabindex="-1">4</span>
+                        <span class="flatpickr-day nextMonthDay"
+                              aria-label="May 5, 2023" tabindex="-1">5</span>
+                        <span class="flatpickr-day nextMonthDay"
+                              aria-label="May 6, 2023" tabindex="-1">6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flatpickr-time" tabindex="-1">
+            <div class="numInputWrapper">
+                <input class="numInput flatpickr-hour" type="number" aria-label="Hour" tabindex="-1" step="1" min="1"
+                       max="12" maxlength="2">
+                <span class="arrowUp"></span><span class="arrowDown"></span>
+            </div><span class="flatpickr-time-separator">:</span>
+            <div class="numInputWrapper">
+                <input class="numInput flatpickr-minute" type="number" aria-label="Minute" tabindex="-1" step="5"
+                       min="0" max="59" maxlength="2">
+                <span class="arrowUp"></span><span class="arrowDown"></span>
+            </div><span class="flatpickr-am-pm" title="Click to toggle" tabindex="-1">PM</span>
+        </div>
+    </div>
+</body><!--end::Body-->
+
+</html>

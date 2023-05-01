@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMAS_Backend_KeyServerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PMAS_Backend_KeyServerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_CryptoSecret" EntityType="PMAS_Backend_KeyServerModel.tbl_CryptoSecret" />
+  </EntityContainer>
+  <EntityType Name="tbl_CryptoSecret">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="KeyName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Algorithm" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Standard" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="KeyPassphrase" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+    <Property Name="CertificateName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedUserID" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+  </EntityType>
+</Schema>

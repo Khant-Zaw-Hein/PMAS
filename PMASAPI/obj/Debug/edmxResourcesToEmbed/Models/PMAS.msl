@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMASModelStoreContainer" CdmEntityContainer="PMASEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PMASModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Appraisal">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Appraisal">
+        <MappingFragment StoreEntitySet="tbl_Appraisal">
+          <ScalarProperty Name="Appraisal_Id" ColumnName="Appraisal_Id" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="campaign_id" ColumnName="campaign_id" />
+          <ScalarProperty Name="assessment_startdate" ColumnName="assessment_startdate" />
+          <ScalarProperty Name="assessment_enddate" ColumnName="assessment_enddate" />
+          <ScalarProperty Name="AppraisalType_Id" ColumnName="AppraisalType_Id" />
+          <ScalarProperty Name="AppraisalPurpose_Id" ColumnName="AppraisalPurpose_Id" />
+          <ScalarProperty Name="AppraisalForm_Id" ColumnName="AppraisalForm_Id" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="visible" ColumnName="visible" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AppraisalPurpose">
+      <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalPurpose">
+        <MappingFragment StoreEntitySet="tbl_AppraisalPurpose">
+          <ScalarProperty Name="AppraisalPurpose_Id" ColumnName="AppraisalPurpose_Id" />
+          <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+          <ScalarProperty Name="appraisal_purpose" ColumnName="appraisal_purpose" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AppraisalStaff">
+      <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalStaff">
+        <MappingFragment StoreEntitySet="tbl_AppraisalStaff">
+          <ScalarProperty Name="AppraisalStaff_Id" ColumnName="AppraisalStaff_Id" />
+          <ScalarProperty Name="Appraisal_Id" ColumnName="Appraisal_Id" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="AppraisalStatus_Id" ColumnName="AppraisalStatus_Id" />
+          <ScalarProperty Name="Form_Id" ColumnName="Form_Id" />
+          <ScalarProperty Name="Sec1_total_points_score" ColumnName="Sec1_total_points_score" />
+          <ScalarProperty Name="Sec1_overall_percent" ColumnName="Sec1_overall_percent" />
+          <ScalarProperty Name="Sec2_total_points_score" ColumnName="Sec2_total_points_score" />
+          <ScalarProperty Name="Sec2_overall_percent" ColumnName="Sec2_overall_percent" />
+          <ScalarProperty Name="PerformanceRating_Id" ColumnName="PerformanceRating_Id" />
+          <ScalarProperty Name="PO_1" ColumnName="PO_1" />
+          <ScalarProperty Name="PO_2" ColumnName="PO_2" />
+          <ScalarProperty Name="PO_3" ColumnName="PO_3" />
+          <ScalarProperty Name="PO_4" ColumnName="PO_4" />
+          <ScalarProperty Name="PO_5" ColumnName="PO_5" />
+          <ScalarProperty Name="PO_6" ColumnName="PO_6" />
+          <ScalarProperty Name="PO_7" ColumnName="PO_7" />
+          <ScalarProperty Name="PO_8" ColumnName="PO_8" />
+          <ScalarProperty Name="PO_9" ColumnName="PO_9" />
+          <ScalarProperty Name="PO_10" ColumnName="PO_10" />
+          <ScalarProperty Name="kpi_1" ColumnName="kpi_1" />
+          <ScalarProperty Name="kpi_2" ColumnName="kpi_2" />
+          <ScalarProperty Name="kpi_3" ColumnName="kpi_3" />
+          <ScalarProperty Name="kpi_4" ColumnName="kpi_4" />
+          <ScalarProperty Name="kpi_5" ColumnName="kpi_5" />
+          <ScalarProperty Name="kpi_6" ColumnName="kpi_6" />
+          <ScalarProperty Name="kpi_7" ColumnName="kpi_7" />
+          <ScalarProperty Name="kpi_8" ColumnName="kpi_8" />
+          <ScalarProperty Name="kpi_9" ColumnName="kpi_9" />
+          <ScalarProperty Name="kpi_10" ColumnName="kpi_10" />
+          <ScalarProperty Name="date_to_complete_PO_1" ColumnName="date_to_complete_PO_1" />
+          <ScalarProperty Name="date_to_complete_PO_2" ColumnName="date_to_complete_PO_2" />
+          <ScalarProperty Name="date_to_complete_PO_3" ColumnName="date_to_complete_PO_3" />
+          <ScalarProperty Name="date_to_complete_PO_4" ColumnName="date_to_complete_PO_4" />
+          <ScalarProperty Name="date_to_complete_PO_5" ColumnName="date_to_complete_PO_5" />
+          <ScalarProperty Name="date_to_complete_PO_6" ColumnName="date_to_complete_PO_6" />
+          <ScalarProperty Name="date_to_complete_PO_7" ColumnName="date_to_complete_PO_7" />
+          <ScalarProperty Name="date_to_complete_PO_8" ColumnName="date_to_complete_PO_8" />
+          <ScalarProperty Name="date_to_complete_PO_9" ColumnName="date_to_complete_PO_9" />
+          <ScalarProperty Name="date_to_complete_PO_10" ColumnName="date_to_complete_PO_10" />
+          <ScalarProperty Name="PO_Rating_1" ColumnName="PO_Rating_1" />
+          <ScalarProperty Name="PO_Rating_2" ColumnName="PO_Rating_2" />
+          <ScalarProperty Name="PO_Rating_3" ColumnName="PO_Rating_3" />
+          <ScalarProperty Name="PO_Rating_4" ColumnName="PO_Rating_4" />
+          <ScalarProperty Name="PO_Rating_5" ColumnName="PO_Rating_5" />
+          <ScalarProperty Name="PO_Rating_6" ColumnName="PO_Rating_6" />
+          <ScalarProperty Name="PO_Rating_7" ColumnName="PO_Rating_7" />
+          <ScalarProperty Name="PO_Rating_8" ColumnName="PO_Rating_8" />
+          <ScalarProperty Name="PO_Rating_9" ColumnName="PO_Rating_9" />
+          <ScalarProperty Name="PO_Rating_10" ColumnName="PO_Rating_10" />
+          <ScalarProperty Name="ro_other_projects" ColumnName="ro_other_projects" />
+          <ScalarProperty Name="ro_strengths" ColumnName="ro_strengths" />
+          <ScalarProperty Name="ro_improvements_followup" ColumnName="ro_improvements_followup" />
+          <ScalarProperty Name="ro_achievements" ColumnName="ro_achievements" />
+          <ScalarProperty Name="DO_1" ColumnName="DO_1" />
+          <ScalarProperty Name="DO_2" ColumnName="DO_2" />
+          <ScalarProperty Name="DO_3" ColumnName="DO_3" />
+          <ScalarProperty Name="DO_4" ColumnName="DO_4" />
+          <ScalarProperty Name="DO_5" ColumnName="DO_5" />
+          <ScalarProperty Name="DO_6" ColumnName="DO_6" />
+          <ScalarProperty Name="DO_7" ColumnName="DO_7" />
+          <ScalarProperty Name="DO_8" ColumnName="DO_8" />
+          <ScalarProperty Name="DO_9" ColumnName="DO_9" />
+          <ScalarProperty Name="DO_10" ColumnName="DO_10" />
+          <ScalarProperty Name="actions_to_achieve_DO_1" ColumnName="actions_to_achieve_DO_1" />
+          <ScalarProperty Name="actions_to_achieve_DO_2" ColumnName="actions_to_achieve_DO_2" />
+          <ScalarProperty Name="actions_to_achieve_DO_3" ColumnName="actions_to_achieve_DO_3" />
+          <ScalarProperty Name="actions_to_achieve_DO_4" ColumnName="actions_to_achieve_DO_4" />
+          <ScalarProperty Name="actions_to_achieve_DO_5" ColumnName="actions_to_achieve_DO_5" />
+          <ScalarProperty Name="actions_to_achieve_DO_6" ColumnName="actions_to_achieve_DO_6" />
+          <ScalarProperty Name="actions_to_achieve_DO_7" ColumnName="actions_to_achieve_DO_7" />
+          <ScalarProperty Name="actions_to_achieve_DO_8" ColumnName="actions_to_achieve_DO_8" />
+          <ScalarProperty Name="actions_to_achieve_DO_9" ColumnName="actions_to_achieve_DO_9" />
+          <ScalarProperty Name="actions_to_achieve_DO_10" ColumnName="actions_to_achieve_DO_10" />
+          <ScalarProperty Name="current_or_future_role_1" ColumnName="current_or_future_role_1" />
+          <ScalarProperty Name="current_or_future_role_2" ColumnName="current_or_future_role_2" />
+          <ScalarProperty Name="current_or_future_role_3" ColumnName="current_or_future_role_3" />
+          <ScalarProperty Name="current_or_future_role_4" ColumnName="current_or_future_role_4" />
+          <ScalarProperty Name="current_or_future_role_5" ColumnName="current_or_future_role_5" />
+          <ScalarProperty Name="current_or_future_role_6" ColumnName="current_or_future_role_6" />
+          <ScalarProperty Name="current_or_future_role_7" ColumnName="current_or_future_role_7" />
+          <ScalarProperty Name="current_or_future_role_8" ColumnName="current_or_future_role_8" />
+          <ScalarProperty Name="current_or_future_role_9" ColumnName="current_or_future_role_9" />
+          <ScalarProperty Name="current_or_future_role_10" ColumnName="current_or_future_role_10" />
+          <ScalarProperty Name="date_to_complete_DO_1" ColumnName="date_to_complete_DO_1" />
+          <ScalarProperty Name="date_to_complete_DO_2" ColumnName="date_to_complete_DO_2" />
+          <ScalarProperty Name="date_to_complete_DO_3" ColumnName="date_to_complete_DO_3" />
+          <ScalarProperty Name="date_to_complete_DO_4" ColumnName="date_to_complete_DO_4" />
+          <ScalarProperty Name="date_to_complete_DO_5" ColumnName="date_to_complete_DO_5" />
+          <ScalarProperty Name="date_to_complete_DO_6" ColumnName="date_to_complete_DO_6" />
+          <ScalarProperty Name="date_to_complete_DO_7" ColumnName="date_to_complete_DO_7" />
+          <ScalarProperty Name="date_to_complete_DO_8" ColumnName="date_to_complete_DO_8" />
+          <ScalarProperty Name="date_to_complete_DO_9" ColumnName="date_to_complete_DO_9" />
+          <ScalarProperty Name="date_to_complete_DO_10" ColumnName="date_to_complete_DO_10" />
+          <ScalarProperty Name="outcomes_achieved_1" ColumnName="outcomes_achieved_1" />
+          <ScalarProperty Name="outcomes_achieved_2" ColumnName="outcomes_achieved_2" />
+          <ScalarProperty Name="outcomes_achieved_3" ColumnName="outcomes_achieved_3" />
+          <ScalarProperty Name="outcomes_achieved_4" ColumnName="outcomes_achieved_4" />
+          <ScalarProperty Name="outcomes_achieved_5" ColumnName="outcomes_achieved_5" />
+          <ScalarProperty Name="outcomes_achieved_6" ColumnName="outcomes_achieved_6" />
+          <ScalarProperty Name="outcomes_achieved_7" ColumnName="outcomes_achieved_7" />
+          <ScalarProperty Name="outcomes_achieved_8" ColumnName="outcomes_achieved_8" />
+          <ScalarProperty Name="outcomes_achieved_9" ColumnName="outcomes_achieved_9" />
+          <ScalarProperty Name="outcomes_achieved_10" ColumnName="outcomes_achieved_10" />
+          <ScalarProperty Name="staff_comments" ColumnName="staff_comments" />
+          <ScalarProperty Name="ready_for_promotion" ColumnName="ready_for_promotion" />
+          <ScalarProperty Name="to_promote_to" ColumnName="to_promote_to" />
+          <ScalarProperty Name="has_potential_for_promotion" ColumnName="has_potential_for_promotion" />
+          <ScalarProperty Name="to_consider_on" ColumnName="to_consider_on" />
+          <ScalarProperty Name="needs_improvement" ColumnName="needs_improvement" />
+          <ScalarProperty Name="recommend_discipinary_action" ColumnName="recommend_discipinary_action" />
+          <ScalarProperty Name="salary_increment" ColumnName="salary_increment" />
+          <ScalarProperty Name="StatsCode_Id_salary_increment" ColumnName="StatsCode_Id_salary_increment" />
+          <ScalarProperty Name="performance_bonus" ColumnName="performance_bonus" />
+          <ScalarProperty Name="StatsCode_Id_perf_bonus" ColumnName="StatsCode_Id_perf_bonus" />
+          <ScalarProperty Name="to_confirm_as" ColumnName="to_confirm_as" />
+          <ScalarProperty Name="ext_probation_months" ColumnName="ext_probation_months" />
+          <ScalarProperty Name="termination_last_day_of_service" ColumnName="termination_last_day_of_service" />
+          <ScalarProperty Name="current_salary_fixed" ColumnName="current_salary_fixed" />
+          <ScalarProperty Name="current_salary_vc" ColumnName="current_salary_vc" />
+          <ScalarProperty Name="salary_adj_fixed" ColumnName="salary_adj_fixed" />
+          <ScalarProperty Name="salary_adj_vc" ColumnName="salary_adj_vc" />
+          <ScalarProperty Name="salary_adj_eff_date" ColumnName="salary_adj_eff_date" />
+          <ScalarProperty Name="month_of_next_annual_incr" ColumnName="month_of_next_annual_incr" />
+          <ScalarProperty Name="ass_panel_approval" ColumnName="ass_panel_approval" />
+          <ScalarProperty Name="ass_panel_comments" ColumnName="ass_panel_comments" />
+          <ScalarProperty Name="mgt_concurred_with_assessment" ColumnName="mgt_concurred_with_assessment" />
+          <ScalarProperty Name="mgt_partially_concurred_with_assessment" ColumnName="mgt_partially_concurred_with_assessment" />
+          <ScalarProperty Name="mgt_donot_concur_with_assessment" ColumnName="mgt_donot_concur_with_assessment" />
+          <ScalarProperty Name="mgt_comments" ColumnName="mgt_comments" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="appraisal_complete_date" ColumnName="appraisal_complete_date" />
+          <ScalarProperty Name="appraisal_update_count_after_completion" ColumnName="appraisal_update_count_after_completion" />
+          <ScalarProperty Name="recommendation_others" ColumnName="recommendation_others" />
+          <ScalarProperty Name="recommendation_others_specify" ColumnName="recommendation_others_specify" />
+          <ScalarProperty Name="job_scope_probationary_period" ColumnName="job_scope_probationary_period" />
+          <ScalarProperty Name="confirmation" ColumnName="confirmation" />
+          <ScalarProperty Name="extension" ColumnName="extension" />
+          <ScalarProperty Name="termination" ColumnName="termination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AppraisalStaffDetails">
+      <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalStaffDetails">
+        <MappingFragment StoreEntitySet="tbl_AppraisalStaffDetails">
+          <ScalarProperty Name="AppraisalStaffDetails_Id" ColumnName="AppraisalStaffDetails_Id" />
+          <ScalarProperty Name="AppraisalStaff_Id" ColumnName="AppraisalStaff_Id" />
+          <ScalarProperty Name="PerformanceCriterion_Id" ColumnName="PerformanceCriterion_Id" />
+          <ScalarProperty Name="ro_perf_rating_yearMid" ColumnName="ro_perf_rating_yearMid" />
+          <ScalarProperty Name="ro_perf_rating_yearEnd" ColumnName="ro_perf_rating_yearEnd" />
+          <ScalarProperty Name="staff_comments" ColumnName="staff_comments" />
+          <ScalarProperty Name="ro_comments" ColumnName="ro_comments" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AppraisalStatus">
+      <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalStatus">
+        <MappingFragment StoreEntitySet="tbl_AppraisalStatus">
+          <ScalarProperty Name="AppraisalStatus_Id" ColumnName="AppraisalStatus_Id" />
+          <ScalarProperty Name="appraisal_status" ColumnName="appraisal_status" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CodeTable">
+      <EntityTypeMapping TypeName="PMASModel.tbl_CodeTable">
+        <MappingFragment StoreEntitySet="tbl_CodeTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Company">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Company">
+        <MappingFragment StoreEntitySet="tbl_Company">
+          <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_CryptoKey">
+      <EntityTypeMapping TypeName="PMASModel.tbl_CryptoKey">
+        <MappingFragment StoreEntitySet="tbl_CryptoKey">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KeyName" ColumnName="KeyName" />
+          <ScalarProperty Name="Passphrase" ColumnName="Passphrase" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Algorithm" ColumnName="Algorithm" />
+          <ScalarProperty Name="Standard" ColumnName="Standard" />
+          <ScalarProperty Name="KeyValue" ColumnName="KeyValue" />
+          <ScalarProperty Name="VectorKey" ColumnName="VectorKey" />
+          <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Department">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Department">
+        <MappingFragment StoreEntitySet="tbl_Department">
+          <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Designation">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Designation">
+        <MappingFragment StoreEntitySet="tbl_Designation">
+          <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+          <ScalarProperty Name="designation" ColumnName="designation" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_EmailNotification">
+      <EntityTypeMapping TypeName="PMASModel.tbl_EmailNotification">
+        <MappingFragment StoreEntitySet="tbl_EmailNotification">
+          <ScalarProperty Name="EmailNotification_Id" ColumnName="EmailNotification_Id" />
+          <ScalarProperty Name="from" ColumnName="from" />
+          <ScalarProperty Name="to" ColumnName="to" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="body" ColumnName="body" />
+          <ScalarProperty Name="timesent" ColumnName="timesent" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="sendstatus" ColumnName="sendstatus" />
+          <ScalarProperty Name="number_of_attempts" ColumnName="number_of_attempts" />
+          <ScalarProperty Name="errors" ColumnName="errors" />
+          <ScalarProperty Name="notification_type_id" ColumnName="notification_type_id" />
+          <ScalarProperty Name="AppraisalStaff_Id" ColumnName="AppraisalStaff_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Menu">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Menu">
+        <MappingFragment StoreEntitySet="tbl_Menu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="MenuLevel" ColumnName="MenuLevel" />
+          <ScalarProperty Name="ParentMenuID" ColumnName="ParentMenuID" />
+          <ScalarProperty Name="SortIndexSerialNo" ColumnName="SortIndexSerialNo" />
+          <ScalarProperty Name="MenuCategory" ColumnName="MenuCategory" />
+          <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Module">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Module">
+        <MappingFragment StoreEntitySet="tbl_Module">
+          <ScalarProperty Name="Module_Id" ColumnName="Module_Id" />
+          <ScalarProperty Name="module_name" ColumnName="module_name" />
+          <ScalarProperty Name="module_desc" ColumnName="module_desc" />
+          <ScalarProperty Name="ModuleGroup_Id" ColumnName="ModuleGroup_Id" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="icon_name" ColumnName="icon_name" />
+          <ScalarProperty Name="sortkey" ColumnName="sortkey" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ModuleGroup">
+      <EntityTypeMapping TypeName="PMASModel.tbl_ModuleGroup">
+        <MappingFragment StoreEntitySet="tbl_ModuleGroup">
+          <ScalarProperty Name="ModuleGroup_Id" ColumnName="ModuleGroup_Id" />
+          <ScalarProperty Name="module_group" ColumnName="module_group" />
+          <ScalarProperty Name="sortkey" ColumnName="sortkey" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_PasswordHistory">
+      <EntityTypeMapping TypeName="PMASModel.tbl_PasswordHistory">
+        <MappingFragment StoreEntitySet="tbl_PasswordHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserAccountID" ColumnName="UserAccountID" />
+          <ScalarProperty Name="OldPassword" ColumnName="OldPassword" />
+          <ScalarProperty Name="Saltkey" ColumnName="Saltkey" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_PerformanceCriterion">
+      <EntityTypeMapping TypeName="PMASModel.tbl_PerformanceCriterion">
+        <MappingFragment StoreEntitySet="tbl_PerformanceCriterion">
+          <ScalarProperty Name="PerformanceCriterion_Id" ColumnName="PerformanceCriterion_Id" />
+          <ScalarProperty Name="Form_Id" ColumnName="Form_Id" />
+          <ScalarProperty Name="Section_Id" ColumnName="Section_Id" />
+          <ScalarProperty Name="SubSection_Id" ColumnName="SubSection_Id" />
+          <ScalarProperty Name="qn_title" ColumnName="qn_title" />
+          <ScalarProperty Name="performance_criterion" ColumnName="performance_criterion" />
+          <ScalarProperty Name="qno" ColumnName="qno" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_PerformanceRating">
+      <EntityTypeMapping TypeName="PMASModel.tbl_PerformanceRating">
+        <MappingFragment StoreEntitySet="tbl_PerformanceRating">
+          <ScalarProperty Name="PerformanceRating_Id" ColumnName="PerformanceRating_Id" />
+          <ScalarProperty Name="performance_rating" ColumnName="performance_rating" />
+          <ScalarProperty Name="perf_cat" ColumnName="perf_cat" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Program">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Program">
+        <MappingFragment StoreEntitySet="tbl_Program">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProgramURL" ColumnName="ProgramURL" />
+          <ScalarProperty Name="IsParentProgram" ColumnName="IsParentProgram" />
+          <ScalarProperty Name="ParentProgramID" ColumnName="ParentProgramID" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Rank">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Rank">
+        <MappingFragment StoreEntitySet="tbl_Rank">
+          <ScalarProperty Name="Rank_Id" ColumnName="Rank_Id" />
+          <ScalarProperty Name="rank" ColumnName="rank" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Role">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Role">
+        <MappingFragment StoreEntitySet="tbl_Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RoleMenuPermission">
+      <EntityTypeMapping TypeName="PMASModel.tbl_RoleMenuPermission">
+        <MappingFragment StoreEntitySet="tbl_RoleMenuPermission">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedUserID" ColumnName="UpdatedUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_StatsCode">
+      <EntityTypeMapping TypeName="PMASModel.tbl_StatsCode">
+        <MappingFragment StoreEntitySet="tbl_StatsCode">
+          <ScalarProperty Name="StatsCode_Id" ColumnName="StatsCode_Id" />
+          <ScalarProperty Name="stats_code" ColumnName="stats_code" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserAccount">
+      <EntityTypeMapping TypeName="PMASModel.tbl_UserAccount">
+        <MappingFragment StoreEntitySet="tbl_UserAccount">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="IsFirstTimeLogin" ColumnName="IsFirstTimeLogin" />
+          <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+          <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
+          <ScalarProperty Name="LoginFailedAttempt" ColumnName="LoginFailedAttempt" />
+          <ScalarProperty Name="Saltkey" ColumnName="Saltkey" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserProfile">
+      <EntityTypeMapping TypeName="PMASModel.tbl_UserProfile">
+        <MappingFragment StoreEntitySet="tbl_UserProfile">
+          <ScalarProperty Name="ReportingOfficer" ColumnName="ReportingOfficer" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserAccountID" ColumnName="UserAccountID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Department_Id" ColumnName="Department_Id" />
+          <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+          <ScalarProperty Name="Rank_Id" ColumnName="Rank_Id" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+          <ScalarProperty Name="LastDayDate" ColumnName="LastDayDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="JobDescriptionForm" ColumnName="JobDescriptionForm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserRole">
+      <EntityTypeMapping TypeName="PMASModel.tbl_UserRole">
+        <MappingFragment StoreEntitySet="tbl_UserRole">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_WebAPI_RequestLog">
+      <EntityTypeMapping TypeName="PMASModel.tbl_WebAPI_RequestLog">
+        <MappingFragment StoreEntitySet="tbl_WebAPI_RequestLog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RequestedSouceID" ColumnName="RequestedSouceID" />
+          <ScalarProperty Name="RequestedPublicKey" ColumnName="RequestedPublicKey" />
+          <ScalarProperty Name="GeneratedKeyword" ColumnName="GeneratedKeyword" />
+          <ScalarProperty Name="EncryptedString" ColumnName="EncryptedString" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_WebAPISetting">
+      <EntityTypeMapping TypeName="PMASModel.tbl_WebAPISetting">
+        <MappingFragment StoreEntitySet="tbl_WebAPISetting">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RequestSource" ColumnName="RequestSource" />
+          <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+          <ScalarProperty Name="PrivateKey" ColumnName="PrivateKey" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AppraisalType">
+      <EntityTypeMapping TypeName="PMASModel.tbl_AppraisalType">
+        <MappingFragment StoreEntitySet="tbl_AppraisalType">
+          <ScalarProperty Name="AppraisalType_Id" ColumnName="AppraisalType_Id" />
+          <ScalarProperty Name="appraisal_type" ColumnName="appraisal_type" />
+          <ScalarProperty Name="disabled" ColumnName="disabled" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+          <ScalarProperty Name="modified_by" ColumnName="modified_by" />
+          <ScalarProperty Name="SortIndex" ColumnName="SortIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Campaign">
+      <EntityTypeMapping TypeName="PMASModel.tbl_Campaign">
+        <MappingFragment StoreEntitySet="tbl_Campaign">
+          <ScalarProperty Name="Campaign_Id" ColumnName="Campaign_Id" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="createdby" ColumnName="createdby" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="modifiedby" ColumnName="modifiedby" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PMASModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PMASModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PMASModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PMASModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PMASModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PMASModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PMASModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PMASModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PMASModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PMASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_Appraisal">
+    <Key>
+      <PropertyRef Name="Appraisal_Id" />
+    </Key>
+    <Property Name="Appraisal_Id" Type="Guid" Nullable="false" />
+    <Property Name="SortOrder" Type="Guid" Nullable="false" />
+    <Property Name="campaign_id" Type="Guid" />
+    <Property Name="assessment_startdate" Type="DateTime" Precision="0" />
+    <Property Name="assessment_enddate" Type="DateTime" Precision="0" />
+    <Property Name="AppraisalType_Id" Type="Guid" />
+    <Property Name="AppraisalPurpose_Id" Type="Guid" />
+    <Property Name="AppraisalForm_Id" Type="Guid" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="visible" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_AppraisalPurpose">
+    <Key>
+      <PropertyRef Name="AppraisalPurpose_Id" />
+    </Key>
+    <Property Name="AppraisalPurpose_Id" Type="Guid" Nullable="false" />
+    <Property Name="SortIndex" Type="Int32" />
+    <Property Name="appraisal_purpose" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_AppraisalStaff">
+    <Key>
+      <PropertyRef Name="AppraisalStaff_Id" />
+    </Key>
+    <Property Name="AppraisalStaff_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Appraisal_Id" Type="Int32" />
+    <Property Name="Employee_Id" Type="Int32" />
+    <Property Name="AppraisalStatus_Id" Type="Int32" />
+    <Property Name="Form_Id" Type="Int32" />
+    <Property Name="Sec1_total_points_score" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="Sec1_overall_percent" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="Sec2_total_points_score" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="Sec2_overall_percent" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PerformanceRating_Id" Type="Int32" />
+    <Property Name="PO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kpi_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_PO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PO_Rating_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ro_other_projects" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ro_strengths" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ro_improvements_followup" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ro_achievements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="actions_to_achieve_DO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="current_or_future_role_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date_to_complete_DO_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_7" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_8" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_9" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="outcomes_achieved_10" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="staff_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ready_for_promotion" Type="Boolean" />
+    <Property Name="to_promote_to" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="has_potential_for_promotion" Type="Boolean" />
+    <Property Name="to_consider_on" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="needs_improvement" Type="Boolean" />
+    <Property Name="recommend_discipinary_action" Type="Boolean" />
+    <Property Name="salary_increment" Type="Boolean" />
+    <Property Name="StatsCode_Id_salary_increment" Type="Int32" />
+    <Property Name="performance_bonus" Type="Boolean" />
+    <Property Name="StatsCode_Id_perf_bonus" Type="Int32" />
+    <Property Name="to_confirm_as" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ext_probation_months" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="termination_last_day_of_service" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="current_salary_fixed" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="current_salary_vc" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="salary_adj_fixed" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="salary_adj_vc" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="salary_adj_eff_date" Type="DateTime" Precision="0" />
+    <Property Name="month_of_next_annual_incr" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ass_panel_approval" Type="Boolean" />
+    <Property Name="ass_panel_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mgt_concurred_with_assessment" Type="Boolean" />
+    <Property Name="mgt_partially_concurred_with_assessment" Type="Boolean" />
+    <Property Name="mgt_donot_concur_with_assessment" Type="Boolean" />
+    <Property Name="mgt_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+    <Property Name="appraisal_complete_date" Type="DateTime" Precision="3" />
+    <Property Name="appraisal_update_count_after_completion" Type="Int32" />
+    <Property Name="recommendation_others" Type="Boolean" />
+    <Property Name="recommendation_others_specify" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="job_scope_probationary_period" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="confirmation" Type="Boolean" />
+    <Property Name="extension" Type="Boolean" />
+    <Property Name="termination" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_AppraisalStaffDetails">
+    <Key>
+      <PropertyRef Name="AppraisalStaffDetails_Id" />
+    </Key>
+    <Property Name="AppraisalStaffDetails_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppraisalStaff_Id" Type="Int32" />
+    <Property Name="PerformanceCriterion_Id" Type="Int32" />
+    <Property Name="ro_perf_rating_yearMid" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="ro_perf_rating_yearEnd" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="staff_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ro_comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_AppraisalStatus">
+    <Key>
+      <PropertyRef Name="AppraisalStatus_Id" />
+    </Key>
+    <Property Name="AppraisalStatus_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="appraisal_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_CodeTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="SortIndex" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Company">
+    <Key>
+      <PropertyRef Name="Company_Id" />
+    </Key>
+    <Property Name="Company_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="company" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_CryptoKey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="KeyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Passphrase" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Algorithm" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Standard" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KeyValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VectorKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedUserID" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+  </EntityType>
+  <EntityType Name="tbl_Department">
+    <Key>
+      <PropertyRef Name="Department_Id" />
+    </Key>
+    <Property Name="Department_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Designation">
+    <Key>
+      <PropertyRef Name="Designation_Id" />
+    </Key>
+    <Property Name="Designation_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+    <Property Name="sort_order" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_EmailNotification">
+    <Key>
+      <PropertyRef Name="EmailNotification_Id" />
+    </Key>
+    <Property Name="EmailNotification_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="from" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="to" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="timesent" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="sendstatus" Type="Boolean" />
+    <Property Name="number_of_attempts" Type="Int16" />
+    <Property Name="errors" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="notification_type_id" Type="Int32" />
+    <Property Name="AppraisalStaff_Id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProgramID" Type="Guid" />
+    <Property Name="MenuLevel" Type="Int32" Nullable="false" />
+    <Property Name="ParentMenuID" Type="Guid" />
+    <Property Name="SortIndexSerialNo" Type="Int32" />
+    <Property Name="MenuCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsShow" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedBy" Type="Guid" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Module">
+    <Key>
+      <PropertyRef Name="Module_Id" />
+    </Key>
+    <Property Name="Module_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="module_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="module_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleGroup_Id" Type="Int32" />
+    <Property Name="source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="icon_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sortkey" Type="Int32" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_ModuleGroup">
+    <Key>
+      <PropertyRef Name="ModuleGroup_Id" />
+    </Key>
+    <Property Name="ModuleGroup_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="module_group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sortkey" Type="Int32" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+    <Property Name="disabled" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tbl_PasswordHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserAccountID" Type="Guid" Nullable="false" />
+    <Property Name="OldPassword" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Saltkey" Type="Binary" MaxLength="50" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+  </EntityType>
+  <EntityType Name="tbl_PerformanceCriterion">
+    <Key>
+      <PropertyRef Name="PerformanceCriterion_Id" />
+    </Key>
+    <Property Name="PerformanceCriterion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Form_Id" Type="Int32" />
+    <Property Name="Section_Id" Type="Int32" />
+    <Property Name="SubSection_Id" Type="Int32" />
+    <Property Name="qn_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="performance_criterion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="qno" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_PerformanceRating">
+    <Key>
+      <PropertyRef Name="PerformanceRating_Id" />
+    </Key>
+    <Property Name="PerformanceRating_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="performance_rating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="perf_cat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Program">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="ProgramURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsParentProgram" Type="Boolean" Nullable="false" />
+    <Property Name="ParentProgramID" Type="Guid" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedBy" Type="Guid" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Rank">
+    <Key>
+      <PropertyRef Name="Rank_Id" />
+    </Key>
+    <Property Name="Rank_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SortIndex" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedBy" Type="Guid" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_RoleMenuPermission">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RoleID" Type="Guid" Nullable="false" />
+    <Property Name="MenuID" Type="Guid" Nullable="false" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedUserID" Type="Guid" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedUserID" Type="Guid" />
+  </EntityType>
+  <EntityType Name="tbl_StatsCode">
+    <Key>
+      <PropertyRef Name="StatsCode_Id" />
+    </Key>
+    <Property Name="StatsCode_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stats_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_UserAccount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="LoginID" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+    <Property Name="IsEnable" Type="Boolean" Nullable="false" />
+    <Property Name="IsFirstTimeLogin" Type="Boolean" Nullable="false" />
+    <Property Name="LastLoginTime" Type="DateTime" Precision="3" />
+    <Property Name="LastPasswordChangeDate" Type="DateTime" Precision="3" />
+    <Property Name="LoginFailedAttempt" Type="Int32" Nullable="false" />
+    <Property Name="Saltkey" Type="Binary" MaxLength="50" FixedLength="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+    <Property Name="DeletedBy" Type="Guid" />
+  </EntityType>
+  <EntityType Name="tbl_UserProfile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserAccountID" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Department_Id" Type="Int32" />
+    <Property Name="Designation_Id" Type="Int32" />
+    <Property Name="Rank_Id" Type="Int32" />
+    <Property Name="JoinDate" Type="DateTime" Precision="0" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="0" />
+    <Property Name="LastDayDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+    <Property Name="Deleted" Type="DateTime" Precision="3" />
+    <Property Name="DeletedBy" Type="Guid" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="JobDescriptionForm" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ReportingOfficer" Type="Guid" />
+  </EntityType>
+  <EntityType Name="tbl_UserRole">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserAccountId" Type="Guid" />
+    <Property Name="RoleId" Type="Guid" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="Guid" />
+  </EntityType>
+  <EntityType Name="tbl_WebAPI_RequestLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RequestedSouceID" Type="Guid" Nullable="false" />
+    <Property Name="RequestedPublicKey" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GeneratedKeyword" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EncryptedString" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_WebAPISetting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="RequestSource" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PublicKey" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PrivateKey" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbl_AppraisalType">
+    <Key>
+      <PropertyRef Name="AppraisalType_Id" />
+    </Key>
+    <Property Name="AppraisalType_Id" Type="Guid" Nullable="false" />
+    <Property Name="appraisal_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="disabled" Type="Boolean" />
+    <Property Name="created_date" Type="DateTime" Precision="3" />
+    <Property Name="created_by" Type="Int32" />
+    <Property Name="modified_date" Type="DateTime" Precision="3" />
+    <Property Name="modified_by" Type="Int32" />
+    <Property Name="SortIndex" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Campaign">
+    <Key>
+      <PropertyRef Name="Campaign_Id" />
+    </Key>
+    <Property Name="Campaign_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="startdate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
+    <Property Name="createdby" Type="DateTime" Precision="3" />
+    <Property Name="createddate" Type="DateTime" Precision="3" />
+    <Property Name="modifiedby" Type="DateTime" Precision="3" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="PMASEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_Appraisal" EntityType="Self.tbl_Appraisal" />
+    <EntitySet Name="tbl_AppraisalPurpose" EntityType="Self.tbl_AppraisalPurpose" />
+    <EntitySet Name="tbl_AppraisalStaff" EntityType="Self.tbl_AppraisalStaff" />
+    <EntitySet Name="tbl_AppraisalStaffDetails" EntityType="Self.tbl_AppraisalStaffDetails" />
+    <EntitySet Name="tbl_AppraisalStatus" EntityType="Self.tbl_AppraisalStatus" />
+    <EntitySet Name="tbl_CodeTable" EntityType="Self.tbl_CodeTable" />
+    <EntitySet Name="tbl_Company" EntityType="Self.tbl_Company" />
+    <EntitySet Name="tbl_CryptoKey" EntityType="Self.tbl_CryptoKey" />
+    <EntitySet Name="tbl_Department" EntityType="Self.tbl_Department" />
+    <EntitySet Name="tbl_Designation" EntityType="Self.tbl_Designation" />
+    <EntitySet Name="tbl_EmailNotification" EntityType="Self.tbl_EmailNotification" />
+    <EntitySet Name="tbl_Menu" EntityType="Self.tbl_Menu" />
+    <EntitySet Name="tbl_Module" EntityType="Self.tbl_Module" />
+    <EntitySet Name="tbl_ModuleGroup" EntityType="Self.tbl_ModuleGroup" />
+    <EntitySet Name="tbl_PasswordHistory" EntityType="Self.tbl_PasswordHistory" />
+    <EntitySet Name="tbl_PerformanceCriterion" EntityType="Self.tbl_PerformanceCriterion" />
+    <EntitySet Name="tbl_PerformanceRating" EntityType="Self.tbl_PerformanceRating" />
+    <EntitySet Name="tbl_Program" EntityType="Self.tbl_Program" />
+    <EntitySet Name="tbl_Rank" EntityType="Self.tbl_Rank" />
+    <EntitySet Name="tbl_Role" EntityType="Self.tbl_Role" />
+    <EntitySet Name="tbl_RoleMenuPermission" EntityType="Self.tbl_RoleMenuPermission" />
+    <EntitySet Name="tbl_StatsCode" EntityType="Self.tbl_StatsCode" />
+    <EntitySet Name="tbl_UserAccount" EntityType="Self.tbl_UserAccount" />
+    <EntitySet Name="tbl_UserProfile" EntityType="Self.tbl_UserProfile" />
+    <EntitySet Name="tbl_UserRole" EntityType="Self.tbl_UserRole" />
+    <EntitySet Name="tbl_WebAPI_RequestLog" EntityType="Self.tbl_WebAPI_RequestLog" />
+    <EntitySet Name="tbl_WebAPISetting" EntityType="Self.tbl_WebAPISetting" />
+    <EntitySet Name="tbl_AppraisalType" EntityType="Self.tbl_AppraisalType" />
+    <EntitySet Name="tbl_Campaign" EntityType="Self.tbl_Campaign" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PMASModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PMASModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

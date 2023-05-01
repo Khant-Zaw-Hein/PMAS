@@ -1,0 +1,98 @@
+﻿
+@using PMAS.Models
+@model  IList<Menu_ProgramViewModel>
+
+@if (Model != null)
+{
+    List<Menu_ProgramViewModel> firstLevelMenuList = Model.Where(x => x.MenuLevel == 0 && x.MenuCategory == "BACKEND").OrderBy(x => x.SerialIndexNo).ToList();
+
+    for (int i = 0; i < firstLevelMenuList.Count; i++)
+    {
+        Menu_ProgramViewModel FirstLevelMenu = firstLevelMenuList[i];
+        string FirstMenuProgramLink = Url.Content("~") + FirstLevelMenu.ProgramURL;
+        List<Menu_ProgramViewModel> SecondLevelMenuList = Model.Where(x => x.MenuLevel == 1 &&
+                                                                           x.ParentMenuID == FirstLevelMenu.MenuID)
+                                                               .OrderBy(x => x.MenuName)
+                                                               .ToList();
+        if (SecondLevelMenuList.Count == 0)
+        {
+            <div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu"
+                 data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
+                 data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end"
+                 data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true"
+                 data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+                <!--begin::Menu-->
+                <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-state-success menu-title-gray-600 menu-arrow-gray-400 fw-semibold fs-6 my-5 my-lg-0 px-2 px-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
+                    <!--begin:Menu item-->
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                         class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2 hover show">
+
+                        <!--begin:Menu link-->
+                        <a href=@FirstMenuProgramLink>
+                            <span class="menu-link py-3">
+                                <span class="menu-title">@FirstLevelMenu.MenuName</span>
+                                <span class="menu-arrow d-lg-none"></span>
+                            </span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                </div>
+                <!--end::Menu-->
+            </div>
+        }
+
+        else
+        {
+            <div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu"
+                 data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
+                 data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end"
+                 data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true"
+                 data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+
+                <!--begin::Menu-->
+                <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-state-success menu-title-gray-600 menu-arrow-gray-400 fw-semibold fs-6 my-5 my-lg-0 px-2 px-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
+
+                    <!--begin:Menu item-->
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                         class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2 hover show">
+
+                        <!--begin:Menu link-->
+                        <span class="menu-link py-3">
+                            <span class="menu-title">@FirstLevelMenu.MenuName</span>
+                            <span class="menu-arrow d-lg-none"></span>
+                        </span>
+                        <!--end:Menu link-->
+                        <!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown px-lg-2 py-lg-4 w-lg-250px show" kt-hidden-height="491" style="">
+
+                            @{
+                                for (int j = 0; j < SecondLevelMenuList.Count; j++)
+                                {
+                                    Menu_ProgramViewModel _secondLevelMenu = SecondLevelMenuList[j];
+                                    string SecondMenuProgramLink = Url.Content("~") + _secondLevelMenu.ProgramURL;
+
+                                    <!--begin:Menu item-->
+                                    <div class="menu-item">
+
+                                        <!--begin:Menu link-->
+                                        <a class="menu-link py-3" href=@SecondMenuProgramLink>
+                                            <span class="menu-title">@_secondLevelMenu.MenuName</span>
+                                        </a>
+                                        <!--end:Menu link-->
+                                    </div>
+                                    <!--end:Menu item-->
+                                }
+                            }
+                        </div>
+                        <!--end:Menu sub-->
+                    </div>
+                    <!--end:Menu item-->
+
+                </div>
+                <!--end::Menu-->
+
+            </div>
+        }
+    }
+}
